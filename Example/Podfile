@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TKFoundationModule_Example' do
+  pod 'TKFoundationModule', :path => '../'
+
+  target 'TKFoundationModule_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
