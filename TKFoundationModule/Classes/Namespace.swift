@@ -11,14 +11,14 @@ import Foundation
 /// 命名空间协议  此处的tk 是类协议的
 public protocol NamespaceWrappable {
     associatedtype WrapperType
-    var tk: WrapperType { get }
-    static var tk: WrapperType.Type { get }
+    var ns: WrapperType { get }
+    static var ns: WrapperType.Type { get }
 }
 public extension NamespaceWrappable {
-    var tk: NamespaceWrapper<Self> {
+    var ns: NamespaceWrapper<Self> {
         return NamespaceWrapper(value: self)
     }
-    static var tk: NamespaceWrapper<Self>.Type {
+    static var ns: NamespaceWrapper<Self>.Type {
         return NamespaceWrapper.self
     }
 }

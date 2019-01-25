@@ -80,7 +80,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Returns: 结果  .none 路径不存在
     public static func isDic(path : String) -> FileManager.PathType {
         let manager = FileManager.default
-        if !FileManager.tk.isExit(path: path) {
+        if !FileManager.ns.isExit(path: path) {
             return .none
         }
         var isDir : ObjCBool = false
@@ -102,7 +102,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     public static func createFolder(name: String, baseUrl: URL) -> Bool {
         let manager = FileManager.default
         let folder = baseUrl.appendingPathComponent(name, isDirectory: true)
-        let exist = FileManager.tk.isExit(path: folder.path)
+        let exist = FileManager.ns.isExit(path: folder.path)
         if !exist {
             do {
                 try manager.createDirectory(at: folder, withIntermediateDirectories: true, attributes: nil)
@@ -133,7 +133,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
         let url = urls[0] as URL
         let dir = url.path + path
 
-        let exist = FileManager.tk.isExit(path: dir)
+        let exist = FileManager.ns.isExit(path: dir)
         if exist {
             debugPrint("The folder already exists")
             return false
@@ -186,7 +186,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
         let url = urls[0] as URL
         let dir = url.path + path
 
-        let exist = FileManager.tk.isExit(path: dir)
+        let exist = FileManager.ns.isExit(path: dir)
         if exist {
             debugPrint("The file already exists")
             return false
@@ -204,7 +204,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Returns: 复制结果  false 失败； true 成功
     public static func copy(from path:String, to targetPath: String) -> Bool {
         let manager = FileManager.default
-        if !FileManager.tk.isExit(path: path) {
+        if !FileManager.ns.isExit(path: path) {
             debugPrint("path is not exist")
             return false
         }
@@ -227,7 +227,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Returns: 结果  false 失败； true 成功
     public static func move(from path:String, to targetPath: String) -> Bool {
         let manager = FileManager.default
-        if !FileManager.tk.isExit(path: path) {
+        if !FileManager.ns.isExit(path: path) {
             debugPrint("path is not exist")
             return false
         }
@@ -261,7 +261,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Parameter path: 路径 目录
     /// - Returns: 结果  false 失败； true 成功
     public static func removeAll(from dicPath:String) -> Bool {
-        if FileManager.tk.isDic(path: dicPath) != .dic {
+        if FileManager.ns.isDic(path: dicPath) != .dic {
             debugPrint(" path is not dic or not exist, dicPath need folder path")
             return false
         }
@@ -282,7 +282,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///   - filePath: 文件路径
     ///   - content: 内容
     public static func writeToEnd(filePath: String, content: String) {
-        if FileManager.tk.isDic(path: filePath) != .file  {
+        if FileManager.ns.isDic(path: filePath) != .file  {
             debugPrint(" filePath is not file or not exist, filePath need file path")
             return
         }
@@ -321,11 +321,11 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Returns: 结果
     public static func equal(path1: String, path2: String) -> Bool{
         let manager = FileManager.default
-        if !FileManager.tk.isExit(path: path1) {
+        if !FileManager.ns.isExit(path: path1) {
             debugPrint("path1 is not exist")
             return false
         }
-        if !FileManager.tk.isExit(path: path2) {
+        if !FileManager.ns.isExit(path: path2) {
             debugPrint("path2 is not exist")
             return false
         }
@@ -339,12 +339,12 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     /// - Parameter path: 路径
     /// - Returns: 大小 kb
     public static func size(path: String) -> Float {
-       if !FileManager.tk.isExit(path: path) {
+       if !FileManager.ns.isExit(path: path) {
             debugPrint(" path is not exist")
             return 0.0
         }
         let manager = FileManager.default
-        let type = FileManager.tk.isDic(path: path)
+        let type = FileManager.ns.isDic(path: path)
         switch type {
         case .none:
             debugPrint(" path is not exist")
