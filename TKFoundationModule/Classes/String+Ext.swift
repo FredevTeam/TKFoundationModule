@@ -76,4 +76,66 @@ extension TypeWrapperProtocol where WrappedType == String {
         }
         return size
     }
+    
 }
+
+
+
+
+
+// TODO - 颜色设置不对
+// MARK: - html
+extension TypeWrapperProtocol where WrappedType == String {
+    /// html -> NSAttributedString
+    ///
+    /// - Parameters:
+    ///   - fontName: 字体名字
+    ///   - size: 字体大小
+    ///   - color: 字体颜色
+    /// - Returns: 结果
+    public func htmlAttributed(attributed fontName: String, size: CGFloat, color: UIColor) -> NSAttributedString? {
+        let htmlString = "<style>" +
+            "html *" +
+            "{" +
+            "font-size: \(size)pt !important;" +
+            "color: #\(hex(color: color)) !important;" +
+            "font-family: \(fontName), Helvetica !important;" +
+        "}</style> \(self.wrappedValue)"
+
+        guard let data = htmlString.data(using: .utf8) else {
+            return nil
+        }
+       return try? NSAttributedString.init(data: data, options: [.documentType: NSAttributedString.DocumentType.html,
+                                                      .characterEncoding: String.Encoding.utf8.rawValue],
+                                documentAttributes: nil)
+    }
+    
+    
+    
+    fileprivate func hex(color: UIColor) -> String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        color.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return String(
+            format: "%02X%02X%02X",
+            Int(r * 0xff),
+            Int(g * 0xff),
+            Int(b * 0xff)
+        )
+    }
+    
+    
+    /// html Attributed
+    public var htmlAttributed: NSAttributedString? {
+        guard let data = self.wrappedValue.data(using: .utf8) else {
+            return nil
+        }
+        return try? NSAttributedString(data: data,
+                                       options: [.documentType: NSAttributedString.DocumentType.html,
+                                                 .characterEncoding: String.Encoding.utf8.rawValue],
+                                       documentAttributes: nil)
+    }
+}
+
