@@ -48,6 +48,5 @@ extension DispatchQueue {
     ///   - execute: block
     public static func delay(_ time: Double, execute: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
-    }
-    
+    }   
 }

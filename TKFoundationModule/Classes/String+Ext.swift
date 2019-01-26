@@ -139,3 +139,42 @@ extension TypeWrapperProtocol where WrappedType == String {
     }
 }
 
+
+
+
+extension TypeWrapperProtocol where WrappedType == String {
+    
+    
+    /// 中文 -----> 拼音
+    ///
+    /// - Parameter stripDiacritics: 是否去除音标 default false
+    /// - Returns: 拼音
+    public func pinyin(stripDiacritics: Bool = false) -> String {
+        let mutableString = NSMutableString(string: self.wrappedValue)
+        // 转拼音
+        CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
+        if stripDiacritics {
+            CFStringTransform(mutableString, nil, kCFStringTransformStripDiacritics, false)
+        }
+        return String(mutableString)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
