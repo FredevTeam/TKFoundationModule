@@ -65,6 +65,7 @@ extension SwizzingProtocol {
     }
 }
 
+
 extension NSObject {
     @objc func defaultMethod() {
         

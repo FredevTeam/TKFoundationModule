@@ -7,19 +7,16 @@
 
 import Foundation
 
+extension Data:NamespaceWrappable{}
 extension TypeWrapperProtocol where WrappedType == Data {
     
     /// 获取json 字符串
     ///
     /// - Parameter data: data
     /// - Returns: json string
-    func json(from data: Data?) -> String? {
-        guard let data = data else {
-            return nil
-        }
-        
+   public func json() -> String? {
         do {
-           let result =  try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+           let result =  try JSONSerialization.jsonObject(with: self.wrappedValue, options: .allowFragments)
             guard JSONSerialization.isValidJSONObject(result) else {
                 return nil
             }

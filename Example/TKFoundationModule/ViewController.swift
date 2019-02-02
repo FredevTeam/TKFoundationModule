@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import TKFoundationModule
 
 class ViewController: UIViewController {
 
+    fileprivate var tableView: UITableView!
+    fileprivate var dataSource:[String: Any] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView = UITableView.init(frame: view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
-
+}
+extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Array(dataSource.keys).count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellId = "XXXXXXXX"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+        if cell == nil {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellId)
+        }
+        cell?.textLabel?.text = Array(dataSource.keys)[indexPath.row]
+        return cell!
+    }
 }
 

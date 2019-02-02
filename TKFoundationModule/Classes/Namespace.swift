@@ -8,7 +8,7 @@
 import Foundation
 
 ///////////////////////////协议命名空间///////////////////////////////////
-/// 命名空间协议  此处的tk 是类协议的
+/// 命名空间协议  只需要更改其内部的命名空间名
 public protocol NamespaceWrappable {
     associatedtype WrapperType
     var ns: WrapperType { get }
@@ -23,7 +23,7 @@ public extension NamespaceWrappable {
     }
 }
 
-/// 此处的是object 对象的
+// 类型协议  固定写法
 public protocol TypeWrapperProtocol {
     associatedtype WrappedType
     var wrappedValue: WrappedType { get }

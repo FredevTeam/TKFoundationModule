@@ -37,38 +37,5 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
 
 extension  TypeWrapperProtocol where WrappedType == NSObject {
     
-    
-    /// 获取view 所在的控制器
-    ///
-    /// - Parameter view: <#view description#>
-    /// - Returns: <#return value description#>
-    func viewController(view: UIView?) -> UIViewController? {
-        var next: UIResponder? = view?.next
-        repeat {
-            if (next as? UIViewController) != nil  {
-                return next as? UIViewController
-            }else {
-                next = next?.next
-            }
-        }while next != nil
-        return nil
-    }
-    
-    /// 获取栈结构
-    ///
-    /// - Parameter vc: <#vc description#>
-    /// - Returns: <#return value description#>
-    func stackViewControllers(vc: UIViewController) -> [UIViewController] {
-        var stack:[UIViewController] = []
-        stack.append(vc)
-        var next: UIResponder? = vc.next
-        repeat {
-            if (next as? UIViewController) != nil  {
-                stack.insert(next as! UIViewController, at: 0)
-            }else {
-                next = next?.next
-            }
-        }while next != nil
-        return stack
-    }
+ 
 }
