@@ -69,7 +69,7 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - maximumNumberOfLines: 行数
     /// - Returns: size
     func size(thatFits size: CGSize, font: UIFont, maximumNumberOfLines: Int = 0) -> CGSize {
-        let attributes: [NSAttributedStringKey: Any] = [.font: font]
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
         var size = self.wrappedValue.boundingRect(with: size, attributes: attributes, context: nil).size
         if maximumNumberOfLines > 0 {
             size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)

@@ -37,5 +37,20 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
 
 extension  TypeWrapperProtocol where WrappedType == NSObject {
     
+    /// 执行时间
+    ///
+    /// - Parameters:
+    ///   - executions: 次数
+    ///   - block: block
+    /// - Returns: 平均时间
+    public func time(executions: Int = 1, _ block: () -> Void) -> TimeInterval {
+        let start  = Date()
+        for _ in 0..<executions {
+            block()
+        }
+        let end = Date()
+        let duration = end.timeIntervalSince(start) / Double(executions)
+        return duration
+    }
  
 }

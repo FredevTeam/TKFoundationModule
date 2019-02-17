@@ -28,3 +28,9 @@ extension TypeWrapperProtocol where WrappedType == URL {
         return queryStrings
     }
 }
+
+extension URL : ExpressibleByStringLiteral {
+    public init(stringLiteral value: String) {
+        self.init(string: value)!
+    }
+}

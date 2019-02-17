@@ -23,6 +23,13 @@ extension Array: NamespaceWrappable{
 }
 
 
+extension Array {
+    subscript (safe index: Index) -> Element? {
+        return self.count > index ? self[index] : nil
+    }
+}
+
+
 extension ArrayProxy {
     
    /// 任意元素
@@ -213,4 +220,20 @@ extension ArrayProxy where Element : Equatable {
         return result
     }
     
+    
+    /// 并行执行
+    ///
+    /// - Parameter transform: block
+    /// - Returns: result 数组
+    public func sync<T>(_ transform: (Element) -> T) -> [T] {
+        let count = base.count
+        // 内存地址
+        let s = UnsafeMutablePointer<T>.allocate(capacity: count)
+        DispatchQueue.concurrentPerform(iterations: count) { (i) in
+            s[i] = transform(base[i])
+        }
+        let result = Array<T>(UnsafeBufferPointer(start: s, count: count))
+        s.deallocate()
+        return result
+    }
 }

@@ -24,9 +24,9 @@ extension TypeWrapperProtocol where WrappedType == Timer {
     /// - Returns: <#return value description#>
    public static func scheduledTimerWithTimerInterval(interval:TimeInterval,
                                                 repoats: Bool,
-                                                block:((_ timer:Timer)-> Void)) -> Timer {
-        return self.WrappedType.scheduledTimer(timeInterval: interval, target: self , selector: #selector(Timer.invokeBlock(timer:)), userInfo: [block], repeats: repoats)
-        
+                                                 block:@escaping ((_ timer:Timer)-> Void)) -> Timer {
+    return self.WrappedType.scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.invokeBlock(timer:)), userInfo: ["block":block], repeats: repoats)
+    
     }
     
 

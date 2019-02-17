@@ -14,6 +14,12 @@ public struct DictionaryProxy<Key:Hashable, Value>{
     }
 }
 
+extension Dictionary {
+    subscript (safe key: Key) -> Value? {
+        return self.keys.contains(key) ? self[key] : nil
+    }
+}
+
 extension Dictionary: NamespaceWrappable{
     public var ns: DictionaryProxy<Key, Value> {
         return DictionaryProxy(proxy: self)
@@ -248,8 +254,9 @@ extension DictionaryProxy where Value: Equatable {
 
 
 
-
-
-
-
+extension Sequence {
+    func sorted<T: Comparable>(by attribute: KeyPath<Element, T>) -> [Element] {
+        return sorted(by: { $0[keyPath: attribute] < $1[keyPath: attribute] })
+    }
+}
 
