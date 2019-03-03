@@ -15,7 +15,7 @@ public struct DictionaryProxy<Key:Hashable, Value>{
 }
 
 extension Dictionary {
-    subscript (safe key: Key) -> Value? {
+   public subscript (safe key: Key) -> Value? {
         return self.keys.contains(key) ? self[key] : nil
     }
 }
@@ -37,7 +37,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func string(_ name:Key, def: String?) -> String? {
+    public func string(key name:Key, def: String?) -> String? {
         return base[name] as? String ?? def
     }
     
@@ -47,7 +47,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func int(_ name: Key, def:Int?) -> Int? {
+    public func int(key name: Key, def:Int?) -> Int? {
         return base[name] as? Int ?? def
     }
     
@@ -57,7 +57,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func double(_ name: Key, def:Double?) -> Double? {
+    public func double(key name: Key, def:Double?) -> Double? {
         return base[name] as? Double ?? def
     }
     
@@ -67,7 +67,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func float(_ name: Key, def:Float?) -> Float? {
+    public func float(key name: Key, def:Float?) -> Float? {
         return base[name] as? Float ?? def
     }
     
@@ -77,7 +77,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func bool(_ name: Key, def:Bool?) -> Bool? {
+    public func bool(key name: Key, def:Bool?) -> Bool? {
         return base[name] as? Bool ?? def
     }
     
@@ -87,7 +87,7 @@ extension DictionaryProxy {
     ///   - name: key
     ///   - def: default value
     /// - Returns: value
-    public func bool(_ name: Key, def:Bool) -> Bool {
+    public func bool(key name: Key, def:Bool) -> Bool {
         return base[name] as? Bool ?? def
     }
     
@@ -96,8 +96,8 @@ extension DictionaryProxy {
     ///
     /// - Parameter key: key
     /// - Returns: bool
-    public func has(_ key: Key) -> Bool {
-        return base.index(forKey:key) != nil
+    public func has(key name: Key) -> Bool {
+        return base.index(forKey:name) != nil
     }
     
     
@@ -105,7 +105,7 @@ extension DictionaryProxy {
     ///
     /// - Parameter options: options
     /// - Returns: json data
-    public func json(options: JSONSerialization.WritingOptions?) -> Data? {
+    public func data(options: JSONSerialization.WritingOptions?) -> Data? {
         guard JSONSerialization.isValidJSONObject(base) else {
             return nil
         }
@@ -118,7 +118,7 @@ extension DictionaryProxy {
     ///
     /// - Parameter options: options
     /// - Returns: json string
-    public func json(options: JSONSerialization.WritingOptions?) -> String? {
+    public func string(options: JSONSerialization.WritingOptions?) -> String? {
         guard JSONSerialization.isValidJSONObject(base) else {
             return nil
         }
@@ -130,7 +130,7 @@ extension DictionaryProxy {
     
     
     /// 合并两个字典
-    ///
+    /// 此操作当key 相同h时 second 会覆盖 first 的
     /// - Parameters:
     ///   - first:
     ///   - second:
@@ -139,6 +139,21 @@ extension DictionaryProxy {
         var result = first.base
         second.base.forEach { (key , value ) in
             result.updateValue(value, forKey: key)
+        }
+        return result
+    }
+    
+    
+    /// 去除
+    ///
+    /// - Parameters:
+    ///   - first: first description
+    ///   - second: second description
+    /// - Returns: return value description
+    public static func - (first:DictionaryProxy, second: DictionaryProxy) -> [Key: Value] {
+        var result = first.base
+        second.base.forEach { (key , value) in
+            result.removeValue(forKey: key)
         }
         return result
     }
@@ -236,6 +251,8 @@ extension Dictionary {
             dic.removeValue(forKey: key)
         }
     }
+//    / 与或非
+    
 }
 
 

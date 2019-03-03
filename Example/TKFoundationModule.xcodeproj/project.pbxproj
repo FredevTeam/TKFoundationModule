@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10E0BABB2229789400ADD8B7 /* Data+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D714F220287F0008FAEB6 /* Data+Tests.swift */; };
+		10E0BABC2229789400ADD8B7 /* Dictionary+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D715322028815008FAEB6 /* Dictionary+Tests.swift */; };
+		10E0BABD2229789400ADD8B7 /* Date+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D715122028808008FAEB6 /* Date+Tests.swift */; };
+		10E0BABF222ABAB100ADD8B7 /* Array+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */; };
+		10E0BAC1222AD92000ADD8B7 /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */; };
 		30DB8D897CBD21B35EE933DD /* Pods_TKFoundationModule_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168FA5B4949AF91CE7933766 /* Pods_TKFoundationModule_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -15,10 +20,24 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		10E0BAB62229782200ADD8B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = TKFoundationModule_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		101D714F220287F0008FAEB6 /* Data+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Tests.swift"; sourceTree = "<group>"; };
 		101D715122028808008FAEB6 /* Date+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tests.swift"; sourceTree = "<group>"; };
 		101D715322028815008FAEB6 /* Dictionary+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Tests.swift"; sourceTree = "<group>"; };
+		10E0BAB12229782200ADD8B7 /* TKFoundationModule_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TKFoundationModule_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10E0BAB52229782200ADD8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Tests.swift"; sourceTree = "<group>"; };
+		10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
 		168FA5B4949AF91CE7933766 /* Pods_TKFoundationModule_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TKFoundationModule_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBBFA0E7DA2E076B686C7BB /* Pods-TKFoundationModule_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKFoundationModule_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TKFoundationModule_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKFoundationModule_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,7 +47,6 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61F5169A276A97E93A222B79 /* Pods_TKFoundationModule_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TKFoundationModule_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFF57A3D5587C01ED59C7E6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9E468F200E62D21FD7A3A27F /* Pods-TKFoundationModule_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKFoundationModule_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TKFoundationModule_Tests/Pods-TKFoundationModule_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -39,6 +57,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		10E0BAAE2229782200ADD8B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10E0BAB22229782200ADD8B7 /* TKFoundationModule_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				101D714F220287F0008FAEB6 /* Data+Tests.swift */,
+				101D715122028808008FAEB6 /* Date+Tests.swift */,
+				101D715322028815008FAEB6 /* Dictionary+Tests.swift */,
+				10E0BAB52229782200ADD8B7 /* Info.plist */,
+				10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */,
+				10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */,
+			);
+			path = TKFoundationModule_Tests;
+			sourceTree = "<group>";
+		};
 		17CD6B6729CC64525305991B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +104,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for TKFoundationModule */,
-				607FACE81AFB9204008FA782 /* Tests */,
+				10E0BAB22229782200ADD8B7 /* TKFoundationModule_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				17CD6B6729CC64525305991B /* Pods */,
 				C2D351FF9A3BAC4173B39439 /* Frameworks */,
@@ -77,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* TKFoundationModule_Example.app */,
+				10E0BAB12229782200ADD8B7 /* TKFoundationModule_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,25 +142,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-				101D714F220287F0008FAEB6 /* Data+Tests.swift */,
-				101D715122028808008FAEB6 /* Date+Tests.swift */,
-				101D715322028815008FAEB6 /* Dictionary+Tests.swift */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +164,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		10E0BAB02229782200ADD8B7 /* TKFoundationModule_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10E0BABA2229782200ADD8B7 /* Build configuration list for PBXNativeTarget "TKFoundationModule_Tests" */;
+			buildPhases = (
+				10E0BAAD2229782200ADD8B7 /* Sources */,
+				10E0BAAE2229782200ADD8B7 /* Frameworks */,
+				10E0BAAF2229782200ADD8B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10E0BAB72229782200ADD8B7 /* PBXTargetDependency */,
+			);
+			name = TKFoundationModule_Tests;
+			productName = TKFoundationModule_Tests;
+			productReference = 10E0BAB12229782200ADD8B7 /* TKFoundationModule_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* TKFoundationModule_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TKFoundationModule_Example" */;
@@ -169,10 +207,16 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					10E0BAB02229782200ADD8B7 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = W4RKLQZZCQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1010;
@@ -193,11 +237,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* TKFoundationModule_Example */,
+				10E0BAB02229782200ADD8B7 /* TKFoundationModule_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		10E0BAAF2229782200ADD8B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,6 +302,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		10E0BAAD2229782200ADD8B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E0BABB2229789400ADD8B7 /* Data+Tests.swift in Sources */,
+				10E0BAC1222AD92000ADD8B7 /* Bundle+Tests.swift in Sources */,
+				10E0BABF222ABAB100ADD8B7 /* Array+Tests.swift in Sources */,
+				10E0BABC2229789400ADD8B7 /* Dictionary+Tests.swift in Sources */,
+				10E0BABD2229789400ADD8B7 /* Date+Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -260,6 +324,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10E0BAB72229782200ADD8B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* TKFoundationModule_Example */;
+			targetProxy = 10E0BAB62229782200ADD8B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -281,6 +353,63 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		10E0BAB82229782200ADD8B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E468F200E62D21FD7A3A27F /* Pods-TKFoundationModule_Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = W4RKLQZZCQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TKFoundationModule_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.TKFoundationModule-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TKFoundationModule_Example.app/TKFoundationModule_Example";
+			};
+			name = Debug;
+		};
+		10E0BAB92229782200ADD8B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E7219E08FD28FC4AD0D7DE /* Pods-TKFoundationModule_Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4RKLQZZCQ;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TKFoundationModule_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.TKFoundationModule-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TKFoundationModule_Example.app/TKFoundationModule_Example";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -333,6 +462,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -380,6 +510,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -415,6 +546,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		10E0BABA2229782200ADD8B7 /* Build configuration list for PBXNativeTarget "TKFoundationModule_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10E0BAB82229782200ADD8B7 /* Debug */,
+				10E0BAB92229782200ADD8B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "TKFoundationModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

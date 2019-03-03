@@ -24,7 +24,11 @@ extension Array: NamespaceWrappable{
 
 
 extension Array {
-    subscript (safe index: Index) -> Element? {
+    /// 测试未通过
+    /// 解决数组越界问题
+    /// array[safe: 1]
+    /// - Parameter index: index
+   public subscript(safe index: Index) -> Element? {
         return self.count > index ? self[index] : nil
     }
 }
@@ -89,7 +93,7 @@ extension ArrayProxy {
     }
     
     
-    /// 随机排序
+    /// 随机排序(乱序)
     ///
     /// - Returns: 结果
     public func shuffle() -> [Element] {
@@ -123,15 +127,25 @@ extension ArrayProxy where Element : Equatable {
     ///
     /// - Parameter ele: item
     /// - Returns: next element
-    public func nextOf(_ ele: Element?) -> Element? {
+    public func nextOf(_ ele: Element?, first: Bool = false) -> Element? {
         guard let index = base.index(where: {$0 == ele}) else {
             return nil
         }
-        return index < (base.count - 1) ? base[index + 1] : base.first
+        return index < (base.count - 1) ? base[index + 1] : (first ? base.first : nil)
     }
     
+    
+    /// contains 包含
+    ///
+    /// - Parameter items: 元素
+    /// - Returns: 结果
     public func contains(items:Element...) -> Bool {
-        return false
+        for i in items {
+            if !self.base.contains(i) {
+                return false
+            }
+        }
+        return true
     }
     
     
@@ -147,7 +161,7 @@ extension ArrayProxy where Element : Equatable {
     }
     
     
-    /// 查找
+    /// 查找 index
     ///
     /// - Parameter condition: block
     /// - Returns: index
@@ -202,14 +216,22 @@ extension ArrayProxy where Element : Equatable {
     
     
     /// array -----> dictionary
+    ///numberArray.ns.dictionary(transform: { (i) -> (key: String, value: Int)? in
+    /// if i > 5 {
+    ///     return (key: "1", value: i)
+    /// }
+    ///     return (key: "2", value: i)
+    ///})
     ///
-    /// - Parameter transform: block
-    /// - Returns: dictionary
+    ///
+    /// - Parameter transform: block , Key 需要改为具体类型
+    /// - Returns: dictionary (key:Key, value: Element)
     public func dictionary<Key:Hashable>(transform:(Element) -> (key:Key, value: Element)?) -> [Key: [Element]] {
         var result : [Key: [Element]] = [:]
         for  item  in base {
             if let t = transform(item) {
                 if var value = result[t.key] {
+//                if var value = result[t.key] {
                     value.append(t.value)
                     result.updateValue(value, forKey: t.key)
                 }else {

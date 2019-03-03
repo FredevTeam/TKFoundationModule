@@ -23,26 +23,26 @@ extension TypeWrapperProtocol where WrappedType == Date {
     ///
     /// - Returns: true 是  false 不是
     public func isTomorrow() -> Bool {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        let string = fmt.string(from: self.wrappedValue)
-        let date = fmt.date(from: string)
-        if date == nil {
-            debugPrint(message: "============self to formatter fail")
-            return false
-        }
-        let newString = fmt.string(from: Date())
-        let newDate = fmt.date(from: newString)
-        if newDate == nil
-        {
-            debugPrint(message: "=======Date() now to formatter fail")
-            return false
-        }
+//        let fmt = DateFormatter()
+//        fmt.dateFormat = "yyyy-MM-dd"
+//        let string = fmt.string(from: self.wrappedValue)
+//        let date = fmt.date(from: string)
+//        if date == nil {
+//            debugPrint(message: "============self to formatter fail")
+//            return false
+//        }
+//        let newString = fmt.string(from: Date())
+//        let newDate = fmt.date(from: newString)
+//        if newDate == nil
+//        {
+//            debugPrint(message: "=======Date() now to formatter fail")
+//            return false
+//        }
         
         // 比较时差
         let calendar = Calendar.current
         let unit = Set(arrayLiteral: Calendar.Component.year , Calendar.Component.month, Calendar.Component.day)
-        let cmps = calendar.dateComponents(unit, from: date!, to: newDate!)
+        let cmps = calendar.dateComponents(unit, from: self.wrappedValue, to: Date())
         return cmps.year == 0 && cmps.month == 0 && cmps.day == -1
         
     }
@@ -116,7 +116,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     public func weekDay(timeZone:TimeZone?  = TimeZone.current) -> Int {
         let weekdays = [7,1,2,3,4,5,6]
         let calendar = Calendar(identifier: .gregorian)
-        let cmp =  calendar.dateComponents(Set(arrayLiteral: .weekday), from: self.wrappedValue )
+        let cmp =  calendar.dateComponents(Set(arrayLiteral: .weekday), from: self.wrappedValue)
         return weekdays.index(of: cmp.weekday ?? 0) ?? 0
     }
     

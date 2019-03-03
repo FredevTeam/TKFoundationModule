@@ -16,10 +16,14 @@ class Data_Tests: XCTestCase {
     /// 开始之前调用
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         let string = "{\"status\":200,\"message\":\"xxxxxx\",\"data\":{\"message\":\"xxxx\",\"code\":201}}"
         data = string.data(using: .utf8)
     }
+    
+    func test_dataJson() {
+        XCTAssertNotNil(data?.ns.json())
+    }
+    
     
     // 结束调用
     override func tearDown() {

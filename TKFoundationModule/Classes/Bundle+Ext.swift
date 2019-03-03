@@ -12,7 +12,7 @@ extension TypeWrapperProtocol where WrappedType == Bundle {
     /// 系统所有的framework
     ///
     /// - Returns: 元祖  (system, other)
-    public func frameworks() -> (system:[Bundle], other: [Bundle]) {
+    public static func frameworks() -> (system:[Bundle], other: [Bundle]) {
         var sysF = [Bundle]()
         var otherF = [Bundle]()
         Bundle.allFrameworks.forEach { (bundle) in
