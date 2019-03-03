@@ -12,6 +12,8 @@
 		10E0BABD2229789400ADD8B7 /* Date+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D715122028808008FAEB6 /* Date+Tests.swift */; };
 		10E0BABF222ABAB100ADD8B7 /* Array+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */; };
 		10E0BAC1222AD92000ADD8B7 /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */; };
+		10E0BAC4222C11AC00ADD8B7 /* URL+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC3222C11AC00ADD8B7 /* URL+Tests.swift */; };
+		10E0BAC6222C134900ADD8B7 /* Timer+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC5222C134900ADD8B7 /* Timer+Tests.swift */; };
 		30DB8D897CBD21B35EE933DD /* Pods_TKFoundationModule_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168FA5B4949AF91CE7933766 /* Pods_TKFoundationModule_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		10E0BAB52229782200ADD8B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Tests.swift"; sourceTree = "<group>"; };
 		10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
+		10E0BAC3222C11AC00ADD8B7 /* URL+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Tests.swift"; sourceTree = "<group>"; };
+		10E0BAC5222C134900ADD8B7 /* Timer+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+Tests.swift"; sourceTree = "<group>"; };
 		168FA5B4949AF91CE7933766 /* Pods_TKFoundationModule_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TKFoundationModule_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBBFA0E7DA2E076B686C7BB /* Pods-TKFoundationModule_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKFoundationModule_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TKFoundationModule_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKFoundationModule_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +88,8 @@
 				10E0BAB52229782200ADD8B7 /* Info.plist */,
 				10E0BABE222ABAB100ADD8B7 /* Array+Tests.swift */,
 				10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */,
+				10E0BAC3222C11AC00ADD8B7 /* URL+Tests.swift */,
+				10E0BAC5222C134900ADD8B7 /* Timer+Tests.swift */,
 			);
 			path = TKFoundationModule_Tests;
 			sourceTree = "<group>";
@@ -310,7 +316,9 @@
 				10E0BAC1222AD92000ADD8B7 /* Bundle+Tests.swift in Sources */,
 				10E0BABF222ABAB100ADD8B7 /* Array+Tests.swift in Sources */,
 				10E0BABC2229789400ADD8B7 /* Dictionary+Tests.swift in Sources */,
+				10E0BAC6222C134900ADD8B7 /* Timer+Tests.swift in Sources */,
 				10E0BABD2229789400ADD8B7 /* Date+Tests.swift in Sources */,
+				10E0BAC4222C11AC00ADD8B7 /* URL+Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

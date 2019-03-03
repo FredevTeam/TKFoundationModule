@@ -8,6 +8,7 @@
 import Foundation
 
 extension Timer {
+    
     @objc fileprivate func invokeBlock(timer: Timer) {
         let block:((_ timer:Timer) -> Void)? = timer.userInfo as? ((Timer) -> Void)
         block?(timer)
@@ -22,11 +23,13 @@ extension TypeWrapperProtocol where WrappedType == Timer {
     ///   - repoats: <#repoats description#>
     ///   - block: <#block description#>
     /// - Returns: <#return value description#>
-   public static func scheduledTimerWithTimerInterval(interval:TimeInterval,
+    @discardableResult
+   public func  scheduledTimerWithTimerInterval(interval:TimeInterval,
                                                 repoats: Bool,
                                                  block:@escaping ((_ timer:Timer)-> Void)) -> Timer {
-    return self.WrappedType.scheduledTimer(timeInterval: interval, target: self, selector: #selector(Timer.invokeBlock(timer:)), userInfo: ["block":block], repeats: repoats)
     
+    let timer = Timer.scheduledTimer(timeInterval: interval, target: self.wrappedValue, selector: #selector(self.wrappedValue.invokeBlock(timer:)), userInfo: ["block":block], repeats: repoats)
+    return timer
     }
     
 

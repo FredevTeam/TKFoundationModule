@@ -10,7 +10,9 @@ import Foundation
 extension URL : NamespaceWrappable{}
 extension TypeWrapperProtocol where WrappedType == URL {
 
-    var queryDictionary: [String: String]? {
+    
+  /// super get request url xxx?name=tao
+  public var queryDictionary: [String: String]? {
         guard let query = self.wrappedValue.query else { return nil}
         
         var queryStrings = [String: String]()
