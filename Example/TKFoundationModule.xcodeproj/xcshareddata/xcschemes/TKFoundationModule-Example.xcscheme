@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BlueprintIdentifier = "10E0BAB02229782200ADD8B7"
                BuildableName = "TKFoundationModule_Tests.xctest"
                BlueprintName = "TKFoundationModule_Tests"
                ReferencedContainer = "container:TKFoundationModule.xcodeproj">
@@ -40,13 +40,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BlueprintIdentifier = "10E0BAB02229782200ADD8B7"
                BuildableName = "TKFoundationModule_Tests.xctest"
                BlueprintName = "TKFoundationModule_Tests"
                ReferencedContainer = "container:TKFoundationModule.xcodeproj">

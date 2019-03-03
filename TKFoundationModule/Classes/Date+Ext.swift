@@ -90,7 +90,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是同一周
     ///
     /// - Returns: true 是 false 不是
-    public func isWeek() -> Bool {
+    public func isWeek(date: Date = Date()) -> Bool {
         let calendar = Calendar.current
         let unit = Set(arrayLiteral: Calendar.Component.year , Calendar.Component.month, Calendar.Component.day)
         let cmps = calendar.dateComponents(unit, from: self.wrappedValue , to: Date())
@@ -113,11 +113,38 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 星期几
     ///
     /// - Returns: 0 获取错误
-    public func weekDay(timeZone:TimeZone?  = TimeZone.current) -> Int {
+    public func weekDay(timeZone:TimeZone = TimeZone.current) -> Int {
         let weekdays = [7,1,2,3,4,5,6]
-        let calendar = Calendar(identifier: .gregorian)
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
         let cmp =  calendar.dateComponents(Set(arrayLiteral: .weekday), from: self.wrappedValue)
         return weekdays.index(of: cmp.weekday ?? 0) ?? 0
+    }
+    
+    
+    
+    /// 相差
+    /// 仅支持 年 月 日 时 分 秒
+    /// - Returns: 天数
+    public func distance(type: Calendar.Component) -> Int {
+     
+        return 0
+    }
+    
+    
+    
+    public func compare(date: Date = Date()) -> Int {
+        let time = self.wrappedValue.timeIntervalSince(date)
+        if time > 0 {
+            return 1
+        }
+        if time == 0 {
+            return 0
+        }
+        if time < 0 {
+            return -1
+        }
+        return 0
     }
     
     

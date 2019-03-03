@@ -161,7 +161,31 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
-
+extension TypeWrapperProtocol where WrappedType == String {
+    
+    /// 获取字节长度
+    ///
+    /// - Returns: 字节长度
+    public func byteLenght() -> Int {
+        var bytes: [UInt8] = []
+        for char in self.wrappedValue.utf8 {
+            bytes.append(char.advanced(by: 0))
+        }
+        return bytes.count
+    }
+    
+    
+    /// 字数
+    ///
+    /// - Returns: <#return value description#>
+    public func number() -> Int {
+        var bytes: [UInt8] = []
+        for char in self.wrappedValue.utf8 {
+            bytes.append(char.advanced(by: 0))
+        }
+        return (bytes.count + 1) / 2
+    }
+}
 
 
 

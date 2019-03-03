@@ -27,5 +27,38 @@ extension TypeWrapperProtocol where WrappedType == Data {
             return nil
         }
     }
+}
+
+
+extension TypeWrapperProtocol where WrappedType == NSData {
     
+    /// 获取image 类型
+    ///
+    /// - Returns: 类型
+    public func imageType() -> String? {
+        var c:UInt8?
+        self.wrappedValue.getBytes(&c, length: 1)
+        switch c {
+        case 0xFF:
+            
+            return ".jpeg"
+            
+        case 0x89:
+            
+            return ".png"
+            
+        case 0x47:
+            
+            return ".gif"
+            
+        case 0x49:
+            fallthrough
+        case 0x4D:
+            
+            return ".tiff"
+        default:
+            break
+        }
+        return nil
+    }
 }
