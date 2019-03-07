@@ -8,14 +8,19 @@
 import Foundation
 
 extension Timer {
+}
+class Block<T> {
+    let f : T
+    init(_ f: T) { self.f = f }
     
-    @objc fileprivate func invokeBlock(timer: Timer) {
-        let block:((_ timer:Timer) -> Void)? = timer.userInfo as? ((Timer) -> Void)
-        block?(timer)
+    @objc func invokeBlock(_ timer: Timer) {
+        if let block = timer.userInfo as? Block<(Timer) -> Swift.Void> {
+            block.f(timer)
+        }
     }
 }
-
 extension TypeWrapperProtocol where WrappedType == Timer {
+
     /// 解决内存泄漏的问题
     ///
     /// - Parameters:
@@ -24,13 +29,13 @@ extension TypeWrapperProtocol where WrappedType == Timer {
     ///   - block: <#block description#>
     /// - Returns: <#return value description#>
     @discardableResult
-   public func  scheduledTimerWithTimerInterval(interval:TimeInterval,
-                                                repoats: Bool,
+    public static func scheduledTimerWithTimerInterval(interval:TimeInterval,
+                                                repeats: Bool,
                                                  block:@escaping ((_ timer:Timer)-> Void)) -> Timer {
-    
-    let timer = Timer.scheduledTimer(timeInterval: interval, target: self.wrappedValue, selector: #selector(self.wrappedValue.invokeBlock(timer:)), userInfo: ["block":block], repeats: repoats)
-    return timer
+        if #available(iOS 10.0, *) {
+            return Timer.scheduledTimer(withTimeInterval: interval, repeats: repeats, block: block)
+        }
+        let block = Block(block)
+       return Timer.scheduledTimer(timeInterval: interval, target: block, selector: #selector(block.invokeBlock(_:)), userInfo: block, repeats: repeats)
     }
-    
-
 }

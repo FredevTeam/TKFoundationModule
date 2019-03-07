@@ -20,11 +20,13 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+        dataSource.updateValue("1", forKey: "1")
     }
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = SecondViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension ViewController: UITableViewDataSource {

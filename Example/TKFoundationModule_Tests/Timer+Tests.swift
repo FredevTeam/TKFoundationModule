@@ -21,29 +21,11 @@ class Timer_Tests: XCTestCase {
     
     func test_timer()  {
         let exp = self.expectation(description: "timer")
-//        @discardableResult
-      let time = timer.ns.scheduledTimerWithTimerInterval(interval: 0.1, repoats: true) { (timer) in
+        let time = Timer.ns.scheduledTimerWithTimerInterval(interval: 0.1, repeats: true) { (timer) in
             print("xxxxxxx")
              exp.fulfill()
         }
-//        timer  = Timer.ns.scheduledTimerWithTimerInterval(interval: 0.1, repoats: true) { (timer ) in
-//            print("xxxxxxx")
-//            exp.fulfill()
-//        }
         RunLoop.current.add(time, forMode: .default)
         self.waitForExpectations(timeout: 10, handler: nil)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
