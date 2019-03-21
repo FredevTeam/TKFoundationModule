@@ -157,6 +157,43 @@ extension TypeWrapperProtocol where WrappedType == Date {
 }
 
 
+
+
+public enum DateFormatType {
+    case YMD  // yyyy-mm-dd
+    case MD // mm-dd
+    case YMDTime // yyyy-MM-dd HH:mm:ss
+    case Time   // HH:mm:ss
+    case MDTime // MM-dd hh:mm
+    case TimeZone // yyyy-MM-dd 'T' HH:mm:ssZ
+}
+extension TypeWrapperProtocol where WrappedType == Date {
+    
+    /// date ---> string
+    ///
+    /// - Parameter type: type
+    /// - Returns: string
+    public func string(with type:DateFormatType) -> String? {
+        let dateFormatter = DateFormatter.init()
+        switch type {
+        case .YMD:
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        case .MD:
+            dateFormatter.dateFormat = "MM-dd"
+        case .YMDTime:
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        case .Time:
+            dateFormatter.dateFormat = "HH:mm:ss"
+        case .MDTime:
+            dateFormatter.dateFormat = "MM-dd hh:mm"
+        case .TimeZone:
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        }
+        return dateFormatter.string(from: self.wrappedValue)
+    }
+
+}
+
 //G: 公元时代，例如AD公元
 //yy: 年的后2位
 //yyyy: 完整年
