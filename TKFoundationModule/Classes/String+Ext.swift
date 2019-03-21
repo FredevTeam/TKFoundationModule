@@ -17,10 +17,10 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - length: 长度
     ///   - espec: 是否带有特殊字符
     /// - Returns: 结果
-   public static func randomString(length: Int,espec: Bool? = false) -> String {
+   public static func randomString(length: Int,espec: Bool = false) -> String {
 
         let  letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        if espec ?? false {
+        if espec {
             letters.appending(",./;'[]!@#$%^&*()")
         }
         let len = UInt32(letters.length)

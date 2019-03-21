@@ -54,9 +54,9 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///   - url: 路径
     ///   - path: 是否输入path
     /// - Returns: 结果
-    public static func exportAll(url: URL, is path: Bool? = false ) -> FileManager.DirectoryEnumerator? {
+    public static func exportAll(url: URL, is path: Bool = false ) -> FileManager.DirectoryEnumerator? {
         let manager = FileManager.default
-        if path ?? false  {
+        if path  {
             return  manager.enumerator(atPath: url.path)
         }else {
             return manager.enumerator(at: url, includingPropertiesForKeys: nil,options: .skipsHiddenFiles, errorHandler:nil)
