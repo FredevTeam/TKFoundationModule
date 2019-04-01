@@ -79,7 +79,32 @@ extension TypeWrapperProtocol where WrappedType == String {
     
 }
 
-
+extension TypeWrapperProtocol where WrappedType == String {
+    
+    public var floatValue: Float {
+        return (self.wrappedValue as NSString).floatValue
+    }
+    
+    public var intValue: Int32 {
+        return (self.wrappedValue as NSString).intValue
+    }
+    
+    public var doubleValue:Double {
+        return (self.wrappedValue as NSString).doubleValue
+    }
+    
+    public var boolValue: Bool {
+        return (self.wrappedValue as NSString).boolValue
+    }
+    public var interValue: Int {
+        return (self.wrappedValue as NSString).integerValue
+    }
+    
+    public var longlongValue: Int64 {
+        return (self.wrappedValue as NSString).longLongValue
+    }
+    
+}
 
 
 
