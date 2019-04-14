@@ -24,4 +24,27 @@ extension TypeWrapperProtocol where WrappedType == Bundle {
         }
         return (system: sysF, other: otherF)
     }
+    
+    
+    /// bundle url
+    ///
+    /// - Parameter bundleClass: any class form bundle
+    /// - Returns: url
+    public static func bundleName(from bundleClass: AnyClass) -> URL? {
+        let bundle = Bundle.init(for: bundleClass)
+        guard let bundleName = bundle.infoDictionary?[kCFBundleNameKey as String] as? String,
+            let url = bundle.url(forResource: bundleName, withExtension: "bundle")
+            else { return nil }
+        return url
+    }
+    
+    public static func bundleResure(of bundleClass: AnyClass) -> Bundle? {
+        let bundle = Bundle(for: bundleClass)
+        guard let bundleName = bundle.infoDictionary?[kCFBundleNameKey as String] as? String,
+            let url = bundle.url(forResource: bundleName, withExtension: "bundle"),
+            let resourceBundle = Bundle(url: url)
+            else { return nil }
+        return resourceBundle
+    }
+    
 }

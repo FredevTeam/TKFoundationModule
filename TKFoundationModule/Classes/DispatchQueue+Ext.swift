@@ -50,3 +50,21 @@ extension DispatchQueue {
         DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
     }   
 }
+
+
+
+
+/// synchronized
+///  @synchronized
+/// - Parameters:
+///   - lock: lock description
+///   - closure: closure block
+/// - Returns: return value description
+/// - Throws: throws value description
+func synchronized<T>(_ lock: AnyObject, _ closure: () throws -> T) rethrows -> T {
+    objc_sync_enter(lock)
+    defer { objc_sync_exit(lock) }
+    return try closure()
+}
+
+
