@@ -13,12 +13,12 @@ class SecondViewController: UIViewController {
     private var timer: Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.timer = Timer.ns.scheduledTimerWithTimerInterval(interval: 0.1, repeats: true) { (timer) in
+         self.timer = Timer.ns.scheduledTimerWithTimerInterval(interval: 0.1, repeats: true) { (_) in
             print("test")
         }
         RunLoop.current.add(timer!, forMode: .default)
     }
-    
+
     /*
     // MARK: - Navigation
 

@@ -12,8 +12,8 @@ import TKFoundationModule
 class ViewController: UIViewController {
 
     fileprivate var tableView: UITableView!
-    fileprivate var dataSource:[String: Any] = [:]
-    
+    fileprivate var dataSource: [String: Any] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView = UITableView.init(frame: view.bounds, style: .plain)
@@ -46,4 +46,3 @@ extension ViewController: UITableViewDataSource {
         return cell!
     }
 }
-

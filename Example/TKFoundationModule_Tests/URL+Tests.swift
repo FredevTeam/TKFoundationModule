@@ -8,7 +8,7 @@
 
 import XCTest
 
-class URL_Tests: XCTestCase {
+class URLTests: XCTestCase {
 
     private var url: URL!
     override func setUp() {
@@ -16,9 +16,9 @@ class URL_Tests: XCTestCase {
     }
 
     override func tearDown() {
-        
+
     }
-    
+
     func test_queryDic() {
 //        url = "https://www.baidu.com/name/taokan"
         url = "https://www.baidu.com/there?name=ferret"

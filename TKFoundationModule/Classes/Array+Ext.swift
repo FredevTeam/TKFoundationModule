@@ -24,7 +24,7 @@ extension Array: NamespaceWrappable{
 
 
 extension Array {
-    /// 测试未通过
+    
     /// 解决数组越界问题
     /// array[safe: 1]
     /// - Parameter index: index
@@ -126,6 +126,7 @@ extension ArrayProxy where Element : Equatable {
     /// next
     ///
     /// - Parameter ele: item
+    /// - first : default return first item
     /// - Returns: next element
     public func nextOf(_ ele: Element?, first: Bool = false) -> Element? {
         guard let index = base.index(where: {$0 == ele}) else {

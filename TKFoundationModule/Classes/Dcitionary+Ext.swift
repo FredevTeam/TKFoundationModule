@@ -262,9 +262,9 @@ extension DictionaryProxy where Value: Equatable {
     /// 根据value 查找 key
     /// - Parameter value: value
     /// - Returns: [key]
-    public func keys(for value: Value) -> [Key] {
+    public func keys(value v: Value) -> [Key] {
         return base.keys.filter({ (key) -> Bool in
-            base[key] == value
+            base[key] == v
         })
     }
 }
