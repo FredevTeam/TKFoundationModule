@@ -260,3 +260,39 @@ extension ArrayProxy where Element : Equatable {
         return result
     }
 }
+
+
+
+
+// MARK: -  && ||
+extension ArrayProxy where Element : Equatable {
+
+    /// 合集
+    ///
+    /// - Parameter items:  target array
+    /// - Returns: result
+    public func intersect(items: Element...) -> [Element] {
+        var array = [Element]()
+        self.base.forEach { (element) in
+            if items.contains(element) {
+                array.append(element)
+            }
+        }
+        return array
+    }
+
+
+    /// 差集
+    ///
+    /// - Parameter items: target array
+    /// - Returns: result
+    public func difference(items: Element...) -> [Element] {
+        var array = [Element]()
+        self.base.forEach { (element) in
+            if !items.contains(element) {
+                array.append(element)
+            }
+        }
+        return array
+    }
+}

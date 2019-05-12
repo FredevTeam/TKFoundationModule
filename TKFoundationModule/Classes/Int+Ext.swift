@@ -63,9 +63,9 @@ extension TypeWrapperProtocol where WrappedType == Int {
     ///   - from: 最小值
     ///   - to: 最大区间
     /// - Returns: 随机值
-//    public static func random(from:Int, to:Int)-> Int {
-//        return Int(from + Int(arc4random() % (to - from + 1)))
-//    }
-    
+    public static func random(min:Int, max:Int)-> Int {
+        return min + Int(arc4random_uniform(UInt32(max - min)))
+    }
+
     
 }
