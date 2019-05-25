@@ -215,9 +215,86 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
+extension TypeWrapperProtocol where WrappedType == String {
+
+    /// split string
+    ///
+    /// - Parameters:
+    ///   - char: char description 间隔字符
+    ///   - spacing: spacing description 间隔数
+    /// - Returns: return value description
+    public func split(_ char: String = " ", _ spacing: Int) -> String? {
+        if self.wrappedValue.isEmpty {
+            return self.wrappedValue
+        }
+
+        let rem = self.wrappedValue.count % spacing
+        let frequency = Int(self.wrappedValue.count / spacing)
+
+        var text  = ""
+        var currentIndex = self.wrappedValue.startIndex
+        for _  in 0..<frequency {
+            let maxIndex = self.wrappedValue.index(currentIndex, offsetBy: spacing)
+            text = text + self.wrappedValue[currentIndex ..< maxIndex] + char
+            currentIndex = maxIndex
+        }
+
+        let lastIndex = self.wrappedValue.index(currentIndex, offsetBy: rem)
+        text += self.wrappedValue[currentIndex ..< lastIndex]
+        return text.trimmingCharacters(in: .whitespaces)
+    }
 
 
 
+    /// split
+    ///
+    /// - Parameters:
+    ///   - interval: 间隔数
+    ///   - distance: 间隔l距离
+    /// - Returns: return value description
+    public func split(interval:Int = 3, separated distance:Int = 10) -> NSAttributedString? {
+        let attS = NSMutableAttributedString.init(string: self.wrappedValue)
+
+        for (index, _) in self.wrappedValue.enumerated() {
+            if (index % interval == 0) && index > 0 {
+                attS.addAttribute(NSAttributedString.Key.kern, value: distance, range: NSRange.init(location: index - 1, length: 1))
+            }
+        }
+        return attS
+    }
+}
+
+
+
+extension TypeWrapperProtocol where WrappedType == String {
+
+    public func sub(to index: UInt) -> String? {
+        guard self.wrappedValue.isEmpty else {
+            return self.wrappedValue
+        }
+         return String(self.wrappedValue[..<self.wrappedValue.index(self.wrappedValue.startIndex, offsetBy: min(Int(index), self.wrappedValue.count))])
+    }
+
+    public func sub(from index: UInt) -> String? {
+        guard self.wrappedValue.isEmpty else {
+            return self.wrappedValue
+         }
+         return String(self.wrappedValue[self.wrappedValue.index(self.wrappedValue.startIndex, offsetBy: min(Int(index), self.wrappedValue.count))...])
+    }
+
+    public func sub(from start:UInt , to end:UInt) -> String? {
+        if start > end {
+            debugPrint("start Must be less than end")
+            return nil
+        }
+        let startIndex = self.wrappedValue.index(self.wrappedValue.startIndex, offsetBy: min(Int(start), self.wrappedValue.count))
+        let endIndex = self.wrappedValue.index(self.wrappedValue.endIndex, offsetBy: -(max(0, self.wrappedValue.count - Int(end))))
+//        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)), upper: min(length, max(0, r.upperBound))))
+//        let start = index(startIndex, offsetBy: range.lowerBound)
+//        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self.wrappedValue[startIndex ..< endIndex])
+    }
+}
 
 
 

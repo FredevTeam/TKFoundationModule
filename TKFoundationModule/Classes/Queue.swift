@@ -20,6 +20,8 @@ protocol QueueProtocol  {
     mutating func enter(_ newElement: Element)
     /// 出队
     mutating func leave() -> Element?
+
+    mutating func removeAll()
 }
 
 
@@ -49,4 +51,9 @@ public struct Queue<T>: QueueProtocol {
         }
         return queue.removeFirst()
     }
+
+    public mutating func removeAll() {
+        self.queue.removeAll()
+    }
+
 }
