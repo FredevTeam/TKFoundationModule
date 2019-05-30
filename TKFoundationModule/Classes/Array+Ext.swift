@@ -89,7 +89,7 @@ extension ArrayProxy {
     ///
     /// - Parameter index: 下标
     public subscript(safe index: Int) -> Element? {
-        return index > 0 && index < base.count ? base[index] : nil
+        return index >= 0 && index < base.count ? base[index] : nil
     }
     
     
