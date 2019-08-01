@@ -32,7 +32,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///
     /// - Parameter url: 路径
     /// - Returns: [String]
-    public static func export(url: URL) -> Array<Any>? {
+    public static func export(url: URL) -> [String]? {
         let manager = FileManager.default
         return try? manager.contentsOfDirectory(atPath: url.path)
     }
@@ -42,7 +42,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///
     /// - Parameter url: 路径
     /// - Returns:
-    public static func exportPath(url: URL) -> Array<Any>? {
+    public static func exportPath(url: URL) -> [URL]? {
         let manager = FileManager.default
         return try? manager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
     }
@@ -68,7 +68,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///
     /// - Parameter path: 文件路径
     /// - Returns: 结果  false 不存在； true 存在
-    public static func isExit( path: String) -> Bool {
+    public static func isExit(path: String) -> Bool {
         let manager = FileManager.default
        return manager.fileExists(atPath: path)
     }
@@ -91,6 +91,23 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
         return .file
     }
 
+    public static func isDir(path: String) -> Bool {
+        if !FileManager.ns.isExit(path: path) {
+            return false
+        }
+        var isDir : ObjCBool = false
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDir)
+        return isDir.boolValue
+    }
+
+    public static func isFile(path: String) -> Bool {
+        if !FileManager.ns.isExit(path: path) {
+            return false
+        }
+        var isDir : ObjCBool = false
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDir)
+        return !isDir.boolValue
+    }
 
 
     /// 创建文件夹
@@ -99,9 +116,13 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///   - name: 文件名
     ///   - baseUrl: 基础路径
     /// - Returns: 是否成功  false 失败； true 成功
-    public static func createFolder(name: String, baseUrl: URL) -> Bool {
+    public static func createFolder(name: String?, baseUrl: URL) -> Bool {
         let manager = FileManager.default
-        let folder = baseUrl.appendingPathComponent(name, isDirectory: true)
+        var folder = baseUrl
+        if let n = name {
+           folder =  baseUrl.appendingPathComponent(n, isDirectory: true)
+        }
+
         let exist = FileManager.ns.isExit(path: folder.path)
         if !exist {
             do {

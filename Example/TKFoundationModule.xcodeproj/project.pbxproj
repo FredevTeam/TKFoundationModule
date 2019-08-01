@@ -59,7 +59,7 @@
 		D25213ED4388FD291BF7F2B8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EC535A2FB212C6A2CA3B90F9 /* Pods-TKFoundationModule_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKFoundationModule_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F2E7219E08FD28FC4AD0D7DE /* Pods-TKFoundationModule_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKFoundationModule_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKFoundationModule_Tests/Pods-TKFoundationModule_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FAA5085CA43C3BD231F2EC48 /* TKFoundationModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TKFoundationModule.podspec; path = ../TKFoundationModule.podspec; sourceTree = "<group>"; };
+		FAA5085CA43C3BD231F2EC48 /* TKFoundationModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TKFoundationModule.podspec; path = ../TKFoundationModule.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +238,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

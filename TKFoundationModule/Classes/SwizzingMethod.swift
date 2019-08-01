@@ -85,12 +85,15 @@ class SwizzingMethod {
     }
 }
 
-extension UIApplication {
+extension Application {
     private static let once: Void = {
         SwizzingMethod.sendMessage()
     }()
-    override open var next: UIResponder? {
-        UIApplication.once
+
+    #if os(iOS)
+    override open var next: Responder? {
+        Application.once
         return super.next
     }
+    #endif
 }

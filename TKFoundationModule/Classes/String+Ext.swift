@@ -7,7 +7,6 @@
 //
 import Foundation
 
-
 extension String : NamespaceWrappable{}
 extension TypeWrapperProtocol where WrappedType == String {
 
@@ -43,7 +42,7 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - font: 字体
     ///   - maximumNumberOfLines: 行数
     /// - Returns: 宽度
-    func width(with font: UIFont, maximumNumberOfLines: Int = 0) -> CGFloat {
+    func width(with font: Font, maximumNumberOfLines: Int = 0) -> CGFloat {
         let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         return self.size(thatFits: size, font: font, maximumNumberOfLines: maximumNumberOfLines).width
     }
@@ -55,7 +54,7 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - font: 字体
     ///   - maximumNumberOfLines: 行数
     /// - Returns: 高度
-    func height(thatFitsWidth width: CGFloat, font: UIFont, maximumNumberOfLines: Int = 0) -> CGFloat {
+    func height(thatFitsWidth width: CGFloat, font: Font, maximumNumberOfLines: Int = 0) -> CGFloat {
         let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         return self.size(thatFits: size, font: font, maximumNumberOfLines: maximumNumberOfLines).height
     }
@@ -68,11 +67,18 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - font: 字体
     ///   - maximumNumberOfLines: 行数
     /// - Returns: size
-    func size(thatFits size: CGSize, font: UIFont, maximumNumberOfLines: Int = 0) -> CGSize {
+    func size(thatFits size: CGSize, font: Font, maximumNumberOfLines: Int = 0) -> CGSize {
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
         var size = self.wrappedValue.boundingRect(with: size, attributes: attributes, context: nil).size
         if maximumNumberOfLines > 0 {
-            size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)
+            #if os(macOS)
+//             ceilf(self.ascender + ABS(self.descender) + self.leading);
+            let lineHeight = ceilf(Float(font.ascender + CGFloat(abs(font.descender)) + font.leading))
+            size.height = min(size.height, CGFloat(Float(maximumNumberOfLines) * lineHeight))
+            #else
+                size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)
+            #endif
+
         }
         return size
     }
@@ -118,7 +124,7 @@ extension TypeWrapperProtocol where WrappedType == String {
     ///   - size: 字体大小
     ///   - color: 字体颜色
     /// - Returns: 结果
-    public func htmlAttributed(attributed fontName: String, size: CGFloat, color: UIColor) -> NSAttributedString? {
+    public func htmlAttributed(attributed fontName: String, size: CGFloat, color: Color) -> NSAttributedString? {
         let htmlString = "<style>" +
             "html *" +
             "{" +
@@ -137,7 +143,7 @@ extension TypeWrapperProtocol where WrappedType == String {
     
     
     
-    fileprivate func hex(color: UIColor) -> String {
+    fileprivate func hex(color: Color ) -> String {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
