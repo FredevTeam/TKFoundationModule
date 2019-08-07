@@ -52,7 +52,7 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     ///
     /// - Parameters:
     ///   - url: 路径
-    ///   - path: 是否输入path
+    ///   - path: 是否输入path  subpaths 会递归符号链接
     /// - Returns: 结果
     public static func exportAll(url: URL, is path: Bool = false ) -> FileManager.DirectoryEnumerator? {
         let manager = FileManager.default
@@ -395,6 +395,30 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
 
         return 0.0
     }
+
+
+    public static func children(path: String) -> [String] {
+        if !FileManager.ns.isDir(path: path) {
+            return []
+        }
+        return (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
+    }
+    public static func children(path url: URL) -> [URL] {
+        if !FileManager.ns.isDir(path: url.path) {
+            return []
+        }
+        return exportPath(url: url) ?? []
+    }
+
+    public static func brothers(path: String) -> [String] {
+        let url = URL.init(fileURLWithPath: path)
+        return export(url: url) ?? []
+    }
+
+    public static func brothers(path: URL) -> [URL] {
+        return exportPath(url: path.deletingLastPathComponent()) ?? []
+    }
+
 }
 
 

@@ -29,10 +29,23 @@ extension TypeWrapperProtocol where WrappedType == URL {
         }
         return queryStrings
     }
+
+
+
+    /// parent directory
+    ///
+    /// - Returns: url
+    public func parentDirectory() -> URL {
+        return self.wrappedValue.deletingLastPathComponent()
+    }
 }
 
 extension URL : ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self.init(string: value)!
     }
+}
+
+extension URL {
+
 }
