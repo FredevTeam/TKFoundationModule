@@ -15,6 +15,7 @@
 		10E0BAC1222AD92000ADD8B7 /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC0222AD92000ADD8B7 /* Bundle+Tests.swift */; };
 		10E0BAC4222C11AC00ADD8B7 /* URL+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC3222C11AC00ADD8B7 /* URL+Tests.swift */; };
 		10E0BAC6222C134900ADD8B7 /* Timer+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E0BAC5222C134900ADD8B7 /* Timer+Tests.swift */; };
+		186C3025DDC33FB736D3CF64 /* Pods_TKFoundationModule_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5169A276A97E93A222B79 /* Pods_TKFoundationModule_Tests.framework */; };
 		30DB8D897CBD21B35EE933DD /* Pods_TKFoundationModule_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168FA5B4949AF91CE7933766 /* Pods_TKFoundationModule_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186C3025DDC33FB736D3CF64 /* Pods_TKFoundationModule_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10E0BABA2229782200ADD8B7 /* Build configuration list for PBXNativeTarget "TKFoundationModule_Tests" */;
 			buildPhases = (
+				1021BACA51CFA94C7C4BAE4B /* [CP] Check Pods Manifest.lock */,
 				10E0BAAD2229782200ADD8B7 /* Sources */,
 				10E0BAAE2229782200ADD8B7 /* Frameworks */,
 				10E0BAAF2229782200ADD8B7 /* Resources */,
@@ -274,6 +277,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1021BACA51CFA94C7C4BAE4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TKFoundationModule_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		10D027F5226F5E850036EE4C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,7 +340,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TKFoundationModule/TKFoundationModule.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -324,7 +349,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TKFoundationModule_Example/Pods-TKFoundationModule_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

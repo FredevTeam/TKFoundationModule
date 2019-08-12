@@ -43,6 +43,7 @@ public typealias TextField        = UITextField
 public typealias Button            = UIButton
 public typealias Font            = UIFont
 public typealias Color            = UIColor
+@available(iOS 9.0, *)
 public typealias StackView        = UIStackView
 public typealias Image            = UIImage
 public typealias BezierPath        = UIBezierPath
