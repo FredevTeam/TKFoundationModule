@@ -16,7 +16,7 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
     ///   - debug: 是否开发模式 会控制台打印方法名
     ///   - `class`: 类
     /// - Returns: 方法名数组
-    func getMethodNames(debug: Bool,`class`: AnyClass?) -> [String] {
+    public func getMethodNames(debug: Bool,`class`: AnyClass?) -> [String] {
         var count:UInt32 = 0
         var names = [String]()
         var targetClass: AnyClass? = `class`
@@ -46,7 +46,7 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
     ///   - debug: 是否开发模式
     ///   - `class`: 类对象
     /// - Returns: 结果 属性列表
-    func getPropertyList(debug: Bool,`class`: AnyClass?) -> [String] {
+    public func getPropertyList(debug: Bool,`class`: AnyClass?) -> [String] {
         var names = [String]()
         var count: UInt32 = 0
         
@@ -76,7 +76,7 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
     ///   - debug: 开发模式
     ///   - `class`: 类
     /// - Returns: 协议名数组
-    func getProtocolNames(debug: Bool,`class`: AnyClass?) -> [String] {
+    public func getProtocolNames(debug: Bool,`class`: AnyClass?) -> [String] {
         var names = [String]()
         var count: UInt32 = 0
         

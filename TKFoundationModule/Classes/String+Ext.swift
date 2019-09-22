@@ -15,6 +15,8 @@ extension TypeWrapperProtocol where WrappedType == String {
     /// - Parameters:
     ///   - length: 长度
     ///   - espec: 是否带有特殊字符
+    ///   - Example:
+    ///         let string = String.ns.randomString(length:5, espec: true)
     /// - Returns: 结果
    public static func randomString(length: Int,espec: Bool = false) -> String {
 
@@ -85,27 +87,37 @@ extension TypeWrapperProtocol where WrappedType == String {
     
 }
 
+
+/// MARK: - Type Conversion
 extension TypeWrapperProtocol where WrappedType == String {
-    
+
+
+    /// to Float
     public var floatValue: Float {
         return (self.wrappedValue as NSString).floatValue
     }
     
+    /// To int32
     public var intValue: Int32 {
         return (self.wrappedValue as NSString).intValue
     }
     
+    /// to double
     public var doubleValue:Double {
         return (self.wrappedValue as NSString).doubleValue
     }
     
+    /// to bool
     public var boolValue: Bool {
         return (self.wrappedValue as NSString).boolValue
     }
-    public var interValue: Int {
+
+    /// to integer
+    public var integerValue: Int {
         return (self.wrappedValue as NSString).integerValue
     }
     
+    /// longlong
     public var longlongValue: Int64 {
         return (self.wrappedValue as NSString).longLongValue
     }
@@ -114,9 +126,10 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
-// TODO - 颜色设置不对
-// MARK: - html
+
+/// MARK: - html
 extension TypeWrapperProtocol where WrappedType == String {
+    // TODO - 颜色设置不对
     /// html -> NSAttributedString
     ///
     /// - Parameters:
@@ -173,6 +186,7 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
+/// MARK: - to  pingyin
 extension TypeWrapperProtocol where WrappedType == String {
     /// 中文 -----> 拼音
     ///
@@ -192,6 +206,7 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
+/// MARK: - Length and text number
 extension TypeWrapperProtocol where WrappedType == String {
     
     /// 获取字节长度
@@ -208,7 +223,9 @@ extension TypeWrapperProtocol where WrappedType == String {
     
     /// 字数
     ///
-    /// - Returns: <#return value description#>
+    /// - Note:
+    ///       转换为 utf-8 编码进行计算
+    /// - Returns: text number
     public func number() -> Int {
         var bytes: [UInt8] = []
         for char in self.wrappedValue.utf8 {
@@ -228,6 +245,8 @@ extension TypeWrapperProtocol where WrappedType == String {
     /// - Parameters:
     ///   - char: char description 间隔字符
     ///   - spacing: spacing description 间隔数
+    ///   - Note:
+    ///     文字个数会改变
     /// - Returns: return value description
     public func split(_ char: String = " ", _ spacing: Int) -> String? {
         if self.wrappedValue.isEmpty {
@@ -254,9 +273,14 @@ extension TypeWrapperProtocol where WrappedType == String {
 
     /// split
     ///
+
     /// - Parameters:
     ///   - interval: 间隔数
     ///   - distance: 间隔l距离
+    /// - Note:
+    ///         分割，但是 文字个数不变，改变字体间间距
+    /// - Example:
+    ///     "ssjjs" ---> "s s j j s", length  = 5
     /// - Returns: return value description
     public func split(interval:Int = 3, separated distance:Int = 10) -> NSAttributedString? {
         let attS = NSMutableAttributedString.init(string: self.wrappedValue)
@@ -272,8 +296,16 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
+
+/// MARK: - Sub String
 extension TypeWrapperProtocol where WrappedType == String {
 
+    /// 子字符串
+    ///
+    /// - Parameter index: 索引位置
+    /// - Note:
+    ///     0 ... to index
+    /// - Returns: 字符串
     public func sub(to index: UInt) -> String? {
         guard self.wrappedValue.isEmpty else {
             return self.wrappedValue
@@ -281,6 +313,12 @@ extension TypeWrapperProtocol where WrappedType == String {
          return String(self.wrappedValue[..<self.wrappedValue.index(self.wrappedValue.startIndex, offsetBy: min(Int(index), self.wrappedValue.count))])
     }
 
+    /// 子字符串
+    ///
+    /// - Parameter index: 索引位置
+    /// - Note:
+    ///     from index .... last index
+    /// - Returns: 子字符串
     public func sub(from index: UInt) -> String? {
         guard self.wrappedValue.isEmpty else {
             return self.wrappedValue
@@ -288,6 +326,13 @@ extension TypeWrapperProtocol where WrappedType == String {
          return String(self.wrappedValue[self.wrappedValue.index(self.wrappedValue.startIndex, offsetBy: min(Int(index), self.wrappedValue.count))...])
     }
 
+
+    /// 子字符串
+    ///
+    /// - Parameters:
+    ///   - start: 开始索引
+    ///   - end: 结束索引
+    /// - Returns: 子字符串
     public func sub(from start:UInt , to end:UInt) -> String? {
         if start > end {
             debugPrint("start Must be less than end")

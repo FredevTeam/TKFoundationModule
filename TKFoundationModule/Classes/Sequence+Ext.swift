@@ -35,6 +35,11 @@ extension Sequence where Element : Equatable {
 }
 
 extension Sequence {
+
+    /// 排序
+    ///
+    /// - Parameter att: 排序条件
+    /// - Returns: 排序后结果
     public func sort<T: Comparable>(by att: KeyPath<Element, T>) -> [Element] {
         return sorted(by: { $0[keyPath: att] < $1[keyPath: att] })
     }

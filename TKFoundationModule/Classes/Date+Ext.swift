@@ -12,7 +12,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是当年
     ///
     /// - Returns: true 是 false 不是
-    public func isYear() -> Bool {
+    public func isCurrentYear() -> Bool {
          let calendar = Calendar.current
         let selfYear = calendar.component(.year, from: self.wrappedValue)
         let newYear = calendar.component(.year, from: Date())
@@ -22,7 +22,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 明天
     ///
     /// - Returns: true 是  false 不是
-    public func isTomorrow() -> Bool {
+    public func tomorrow() -> Bool {
 //        let fmt = DateFormatter()
 //        fmt.dateFormat = "yyyy-MM-dd"
 //        let string = fmt.string(from: self.wrappedValue)
@@ -50,7 +50,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是昨天
     ///
     /// - Returns: true 是 false 不是
-    public func isYesterday() -> Bool {
+    public func yesterday() -> Bool {
         // 转换为相同格式
         let fmt = DateFormatter()
         fmt.dateFormat = "yyyy-MM-dd"
@@ -78,7 +78,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是今天
     ///
     /// - Returns: true 是 false 否
-    public func isToday() -> Bool {
+    public func today() -> Bool {
         let calendar = Calendar.current
         let unit = Set(arrayLiteral: Calendar.Component.year , Calendar.Component.month, Calendar.Component.day)
         let cmps = calendar.dateComponents(unit, from: self.wrappedValue )
@@ -90,7 +90,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是同一周
     ///
     /// - Returns: true 是 false 不是
-    public func isWeek(date: Date = Date()) -> Bool {
+    public func currentWeek(date: Date = Date()) -> Bool {
         let calendar = Calendar.current
         let unit = Set(arrayLiteral: Calendar.Component.year , Calendar.Component.month, Calendar.Component.day)
         let cmps = calendar.dateComponents(unit, from: self.wrappedValue , to: Date())
@@ -100,7 +100,7 @@ extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是当月
     ///
     /// - Returns: true 是 false 不是
-    public func isMonth() -> Bool {
+    public func currentMonth() -> Bool {
         let calendar = Calendar.current
         let unit = Set(arrayLiteral: Calendar.Component.year , Calendar.Component.month)
         let cmps = calendar.dateComponents(unit, from: self.wrappedValue )

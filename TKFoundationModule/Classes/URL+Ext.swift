@@ -12,6 +12,10 @@ extension TypeWrapperProtocol where WrappedType == URL {
 
     
   /// super get request url xxx?name=tao
+
+    /// 查询条件
+    /// - Example:
+    ///    super get request url xxx?name=tao
   public var queryDictionary: [String: String]? {
         guard let query = self.wrappedValue.query else { return nil}
         
@@ -32,7 +36,7 @@ extension TypeWrapperProtocol where WrappedType == URL {
 
 
 
-    /// parent directory
+    /// parent directory 基础地址
     ///
     /// - Returns: url
     public func parentDirectory() -> URL {
@@ -41,6 +45,12 @@ extension TypeWrapperProtocol where WrappedType == URL {
 }
 
 extension URL : ExpressibleByStringLiteral {
+
+    /// string 定义 URL
+    ///
+    /// - Parameter value: string
+    /// - Example:
+    ///     let url: URL = "http://www.xxx.com"
     public init(stringLiteral value: String) {
         self.init(string: value)!
     }

@@ -16,7 +16,7 @@ extension TypeWrapperProtocol where WrappedType == DispatchQueue {
     /// 判断是否在主线程执行推荐通过此方式来实现
     ///
     /// - Returns: 当前是否在主队列
-    static public  func  isMainQueue() -> Bool {
+    public static func  isMainQueue() -> Bool {
         DispatchQueue.main.setSpecific(key: mainQueueKey, value: mainQueueValue)
         return DispatchQueue.getSpecific(key: mainQueueKey) == mainQueueValue
     }
@@ -61,7 +61,7 @@ extension DispatchQueue {
 ///   - closure: closure block
 /// - Returns: return value description
 /// - Throws: throws value description
-func synchronized<T>(_ lock: AnyObject, _ closure: () throws -> T) rethrows -> T {
+public ßßfunc synchronized<T>(_ lock: AnyObject, _ closure: () throws -> T) rethrows -> T {
     objc_sync_enter(lock)
     defer { objc_sync_exit(lock) }
     return try closure()

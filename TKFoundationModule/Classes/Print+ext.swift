@@ -33,6 +33,19 @@ public func debugPrint(message item:Any?,dsohandle:UnsafeRawPointer = #dsohandle
     tk_print(item, debug: true)
 }
 
+
+/// 内存地址
+///
+/// - Parameter values: 需要元素对象
+public func printAddress(values: AnyObject...) {
+    func printAddress(values:AnyObject...){
+        for value in values {
+            debugPrint("\(type(of: value))" + " ======>" + "\(Unmanaged.passUnretained(value).toOpaque())")
+        }
+    }
+}
+
+
 /// 自定义实现 print
 ///
 /// - Parameters:

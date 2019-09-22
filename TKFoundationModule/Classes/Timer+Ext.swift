@@ -24,10 +24,10 @@ extension TypeWrapperProtocol where WrappedType == Timer {
     /// 解决内存泄漏的问题
     ///
     /// - Parameters:
-    ///   - interval: <#interval description#>
-    ///   - repoats: <#repoats description#>
-    ///   - block: <#block description#>
-    /// - Returns: <#return value description#>
+    ///   - interval: 时间间隔
+    ///   - repoats: 是否循环
+    ///   - block: 回调block
+    /// - Returns: Timer object 
     @discardableResult
     public static func scheduledTimerWithTimerInterval(interval:TimeInterval,
                                                 repeats: Bool,
