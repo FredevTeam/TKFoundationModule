@@ -8,6 +8,7 @@
 import Foundation
 
 
+// MARK: - NSObject
 extension TypeWrapperProtocol where WrappedType == NSObject {
     
     /// 获取对象的所有方法名

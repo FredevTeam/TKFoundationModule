@@ -8,7 +8,7 @@
 import Foundation
 
 /// 方法交换协议
-protocol SwizzingProtocol: class {
+public protocol SwizzingProtocol: class {
     static func awake()
     
     /// 方法交换
@@ -20,9 +20,16 @@ protocol SwizzingProtocol: class {
     static func swizzling(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector)
     static func swizzling(_ forDelegate: NSObjectProtocol, originalSel: Selector,targetClass:AnyClass, targetSel:Selector,defaultMethod:Method?)
 }
+
 extension SwizzingProtocol {
     
-    static func swizzling(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
+    /// 方法交换
+    ///
+    /// - Parameters:
+    ///   - forClass: 目标类
+    ///   - originalSelector: 原方法
+    ///   - swizzledSelector: 目标方法
+    public static func swizzling(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector) {
         let originalMethod = class_getInstanceMethod(forClass, originalSelector)
         let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector)
         
@@ -46,7 +53,7 @@ extension SwizzingProtocol {
     ///   - targetClass: 目标类 UITableView.self
     ///   - targetSel: 目标方法 #selector(UITableView.tk_tableView(_:didSelectRowAt:))
     ///   - defaultMethod: 代理方式未实现时，默认实现   class_getInstanceMethod(UITableView.self, #selector(UITableView.defaultMethod))
-    static func swizzling(_ delegate: NSObjectProtocol, originalSel: Selector,targetClass:AnyClass, targetSel:Selector,defaultMethod:Method?) {
+    public static func swizzling(_ delegate: NSObjectProtocol, originalSel: Selector,targetClass:AnyClass, targetSel:Selector,defaultMethod:Method?) {
         var originalMethod = class_getInstanceMethod(type(of: delegate), originalSel)
         let swizzledMethod = class_getInstanceMethod(targetClass, targetSel)
         
@@ -72,8 +79,8 @@ extension NSObject {
     }
 }
 
-class SwizzingMethod {
-    static func sendMessage() {
+public class SwizzingMethod {
+    public static func sendMessage() {
         let typeCount = Int(objc_getClassList(nil, 0))
         let types = UnsafeMutablePointer<AnyClass>.allocate(capacity: typeCount)
         let autoreleasingTypes = AutoreleasingUnsafeMutablePointer<AnyClass>(types)

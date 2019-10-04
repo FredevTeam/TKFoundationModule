@@ -8,6 +8,9 @@
 import Foundation
 
 extension Date: NamespaceWrappable {}
+
+/// Date
+
 extension TypeWrapperProtocol where WrappedType == Date {
     /// 是否是当年
     ///

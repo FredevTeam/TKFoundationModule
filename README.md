@@ -22,7 +22,7 @@ pod 'TKFoundationModule'
 
 ## Author
 
-zhuamaodeyu, 1021491936@qq.com
+zhuamaodeyu, playtomandjerry@gmail.com
 
 ## License
 

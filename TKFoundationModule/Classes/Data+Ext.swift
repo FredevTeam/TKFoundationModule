@@ -8,6 +8,9 @@
 import Foundation
 
 extension Data:NamespaceWrappable{}
+
+/// Data
+
 extension TypeWrapperProtocol where WrappedType == Data {
     
     /// 获取json 字符串

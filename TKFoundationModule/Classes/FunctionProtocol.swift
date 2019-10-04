@@ -36,6 +36,7 @@ public protocol FunctionProtocol {
 }
 
 
+// MARK: - FunctionProtocol
 extension Float: FunctionProtocol {
     public func round() -> Float {
         return roundf(self)
@@ -56,6 +57,8 @@ extension Float: FunctionProtocol {
     public typealias TargetType = Float
 }
 
+
+// MARK: - FunctionProtocol
 extension Double : FunctionProtocol {
     public func round() -> Double {
         return Darwin.round(self)

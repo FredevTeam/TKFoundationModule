@@ -19,6 +19,8 @@ class Block<T> {
         }
     }
 }
+
+// MARK: - Timer
 extension TypeWrapperProtocol where WrappedType == Timer {
 
     /// 解决内存泄漏的问题

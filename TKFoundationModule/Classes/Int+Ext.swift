@@ -8,6 +8,8 @@
 import Foundation
 //
 extension Int : NamespaceWrappable{}
+
+// MARK: - Int
 extension TypeWrapperProtocol where WrappedType == Int {
     /// 随机数
     ///

@@ -8,6 +8,8 @@
 import Foundation
 
 extension String : NamespaceWrappable{}
+
+// MARK: - String
 extension TypeWrapperProtocol where WrappedType == String {
 
     /// 随机字符串
@@ -36,8 +38,12 @@ extension TypeWrapperProtocol where WrappedType == String {
 
         return randomString
     }
-    
-    
+
+}
+/// MARK: - String Size 
+extension TypeWrapperProtocol where WrappedType == String {
+
+
     /// 获取内容宽度
     ///
     /// - Parameters:
@@ -48,7 +54,7 @@ extension TypeWrapperProtocol where WrappedType == String {
         let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         return self.size(thatFits: size, font: font, maximumNumberOfLines: maximumNumberOfLines).width
     }
-    
+
     /// 获取内容高度
     ///
     /// - Parameters:
@@ -60,8 +66,8 @@ extension TypeWrapperProtocol where WrappedType == String {
         let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         return self.size(thatFits: size, font: font, maximumNumberOfLines: maximumNumberOfLines).height
     }
-    
-    
+
+
     /// 获取内容size
     ///
     /// - Parameters:
@@ -74,17 +80,18 @@ extension TypeWrapperProtocol where WrappedType == String {
         var size = self.wrappedValue.boundingRect(with: size, attributes: attributes, context: nil).size
         if maximumNumberOfLines > 0 {
             #if os(macOS)
-//             ceilf(self.ascender + ABS(self.descender) + self.leading);
+            //             ceilf(self.ascender + ABS(self.descender) + self.leading);
             let lineHeight = ceilf(Float(font.ascender + CGFloat(abs(font.descender)) + font.leading))
             size.height = min(size.height, CGFloat(Float(maximumNumberOfLines) * lineHeight))
             #else
-                size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)
+            size.height = min(size.height, CGFloat(maximumNumberOfLines) * font.lineHeight)
             #endif
 
         }
         return size
     }
-    
+
+
 }
 
 
