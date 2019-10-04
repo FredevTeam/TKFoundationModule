@@ -1,0 +1,97 @@
+
+clean:
+
+module: TKFoundationModule
+module_version: 0.1.2
+root_url: https://github.com/zhuamaodeyu
+author: 抓猫的鱼
+author_url: https://github.com/zhuamaodeyu/knowledge
+github_url: https://github.com/zhuamaodeyu/TKFoundationModule.git
+
+title: TKComponentization/TKFoundationModule 
+readme: ../README.md
+
+
+theme: apple
+output: out/doc
+
+
+copyright: '© 2018 [抓猫的鱼](https://github.com/zhuamaodeyu/knowledge) under
+[open source license](https://github.com/zhuamaodeyu/TKFoundationModule/blob/master/LICENSE).'
+
+
+# xcodebuild arguments
+# xcodebuild_arguments: ["-workspace","TKAuthorityModule.xcworkspace",
+#                         "-scheme","TKAuthorityModule","-sdk","iphonesimulator"]
+
+xcodebuild_arguments:
+- -workspace
+- TKFoundationModule.xcworkspace
+- -scheme
+- TKFoundationModule
+- -sdk
+- iphonesimulator
+
+
+hide_documentation_coverage: true
+documentation: ../*.md  # 都可
+skip_undocumented: true
+
+
+# docset
+# docset-icon: xxxx/xxx
+# docset-path: xxx/xxx
+
+
+swift_version: 5.0.1
+min_acl: public # public open, fileprivate, intxxx
+
+# exclude:
+# - "xxxxx.swift"
+# - "xxxx.swift"
+
+
+custom_categories:
+  - name: Namespace 
+    children:
+      - NamespaceWrappable 
+      - TypeWrapperProtocol 
+      - NamespaceWrapper
+  - name: Array 
+    children:
+      - ArrayProxy 
+  - name: Dictionary
+    children:
+      - DictionaryProxy
+  - name: List 
+    children:
+      - DoubleLinkedList 
+      - DoubleLinkedListNode 
+  - name: data structure
+    children:
+      - Stack 
+      - StackProtocol
+      - Queue 
+      - QueueProtocol 
+      - DelayQueue
+  - name: Method Swizzing 
+    children:
+      - SwizzingProtocol 
+      - SwizzingMethod
+  - name: Foundtion Extenions 
+    children:
+      - FunctionProtocol 
+      - Float 
+      - Double 
+
+
+# - name: Manager
+#   children:
+#   - AuthorityManager 
+
+# - name: Enum 
+#   children:  
+#   - TouchIDAuthority
+#   - LocaltionType
+
+

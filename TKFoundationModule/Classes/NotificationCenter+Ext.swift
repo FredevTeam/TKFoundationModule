@@ -8,6 +8,7 @@
 import Foundation
 
 
+// MARK: - NSNotification Center
 extension TypeWrapperProtocol where WrappedType == NotificationCenter {
 
 

@@ -23,7 +23,7 @@ public extension NamespaceWrappable {
     }
 }
 
-// 类型协议  固定写法
+/// 类型协议  固定写法
 public protocol TypeWrapperProtocol {
     associatedtype WrappedType
     var wrappedValue: WrappedType { get }

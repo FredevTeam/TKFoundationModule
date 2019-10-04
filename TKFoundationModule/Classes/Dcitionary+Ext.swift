@@ -14,7 +14,15 @@ public struct DictionaryProxy<Key:Hashable, Value>{
     }
 }
 
+
+///  MARK: - 下标扩展
 extension Dictionary {
+
+   /// 下标通过 key 获取value
+   ///
+   /// - Parameter key: key
+    /// - Note:
+    ///     本操作允许空值存在
    public subscript (safe key: Key) -> Value? {
         return self.keys.contains(key) ? self[key] : nil
     }
@@ -30,6 +38,7 @@ extension Dictionary: NamespaceWrappable{
 }
 
 
+/// MARK: - 数据类型转换 带有默认值
 extension DictionaryProxy {
     /// sting
     ///

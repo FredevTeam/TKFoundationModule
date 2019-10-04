@@ -7,9 +7,10 @@
 
 import Foundation
 
+/// Bundle
 extension TypeWrapperProtocol where WrappedType == Bundle {
     
-    /// 系统所有的framework
+    /// 分类所有 framework
     ///
     /// - Returns: 元祖  (system, other)
     public static func frameworks() -> (system:[Bundle], other: [Bundle]) {
@@ -38,6 +39,10 @@ extension TypeWrapperProtocol where WrappedType == Bundle {
         return url
     }
     
+    /// 根据指定类获取 bundle
+    ///
+    /// - Parameter bundleClass: 类
+    /// - Returns: bundle
     public static func bundleResure(of bundleClass: AnyClass) -> Bundle? {
         let bundle = Bundle(for: bundleClass)
         guard let bundleName = bundle.infoDictionary?[kCFBundleNameKey as String] as? String,

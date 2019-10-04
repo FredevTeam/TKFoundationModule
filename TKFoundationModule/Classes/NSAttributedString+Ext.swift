@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+// MARK: - NSAttributedString
 extension TypeWrapperProtocol where WrappedType == NSAttributedString {
     
 }

@@ -22,33 +22,33 @@ class DateTests: XCTestCase {
     func test_isYear() {
         dateFormatter.dateFormat = "YYYY/mm/DD"
         let date  = dateFormatter.date(from: "2019/03/20")
-        XCTAssertTrue(date?.ns.isYear() ?? false)
+//        XCTAssertTrue(date?.ns.year() ?? false)
     }
 
     func test_tomorrow() {
         // 时区问题 所有多一天
         let date  = dateFormatter.date(from: "2019-04-30")
-        XCTAssertTrue(date?.ns.isTomorrow() ?? false)
+        XCTAssertTrue(date?.ns.tomorrow() ?? false)
     }
 
     func test_yesterday() {
         let date = dateFormatter.date(from: "2019-04-27")
-        XCTAssertTrue(date?.ns.isYesterday() ?? false)
+        XCTAssertTrue(date?.ns.yesterday() ?? false)
     }
 
     func test_today() {
         let date = Date.init()
-        XCTAssertTrue(date.ns.isToday())
+        XCTAssertTrue(date.ns.today())
     }
 
     func test_week() {
         let date = dateFormatter.date(from: "2019-04-25")
-        XCTAssertTrue(date?.ns.isWeek() ?? false )
+//        XCTAssertTrue(date?.ns.weekDay() ?? false )
     }
 
     func test_month() {
         let date = dateFormatter.date(from: "2019-04-21")
-        XCTAssertTrue(date?.ns.isMonth() ?? false )
+//        XCTAssertTrue(date?.ns.month() ?? false )
     }
 
     func test_weekDay() {

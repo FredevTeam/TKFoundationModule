@@ -8,6 +8,9 @@
 import Foundation
 
 extension Data:NamespaceWrappable{}
+
+/// Data
+
 extension TypeWrapperProtocol where WrappedType == Data {
     
     /// 获取json 字符串
@@ -32,7 +35,7 @@ extension TypeWrapperProtocol where WrappedType == Data {
 
 extension TypeWrapperProtocol where WrappedType == NSData {
     
-    /// 获取image 类型
+    /// 获取 image 类型
     ///
     /// - Returns: 类型
     public func imageType() -> String? {

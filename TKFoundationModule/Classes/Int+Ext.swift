@@ -8,12 +8,14 @@
 import Foundation
 //
 extension Int : NamespaceWrappable{}
+
+// MARK: - Int
 extension TypeWrapperProtocol where WrappedType == Int {
     /// 随机数
     ///
     /// - Parameter max: 最大数
     /// - Returns: 1 ~ max 的随机数
-    func random(max: Int) -> Int {
+    public static func random(max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max))) + 1
     }
 
@@ -21,15 +23,16 @@ extension TypeWrapperProtocol where WrappedType == Int {
     ///
     /// - Parameter length: 长度
     /// - Returns: 数
-    func random (length: Int) -> Int {
-        return 0
+    public static func random (length: UInt) -> Int {
+        let min = 10 << Int(length)
+        return Int.ns.random(lower: min, upper: min * 10)
     }
 
 
     /// 随机数
     ///
     /// - Returns: 任意随机数
-    func random () -> Int {
+    public static func random () -> Int {
         return Int(arc4random())
     }
     

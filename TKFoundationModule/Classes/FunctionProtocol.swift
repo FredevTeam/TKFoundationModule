@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol FunctionProtocol {
+public protocol FunctionProtocol {
     associatedtype TargetType
 
     /// 绝对值
@@ -36,42 +36,45 @@ protocol FunctionProtocol {
 }
 
 
+// MARK: - FunctionProtocol
 extension Float: FunctionProtocol {
-    func round() -> Float {
+    public func round() -> Float {
         return roundf(self)
     }
 
-    func abs() -> Float {
+    public func abs() -> Float {
         return fabsf(self)
     }
 
-    func floor() -> Float {
+    public func floor() -> Float {
         return floorf(self)
     }
 
-    func ceil() -> Float {
+    public func ceil() -> Float {
         return ceilf(self)
     }
 
-    typealias TargetType = Float
+    public typealias TargetType = Float
 }
 
+
+// MARK: - FunctionProtocol
 extension Double : FunctionProtocol {
-    func round() -> Double {
+    public func round() -> Double {
         return Darwin.round(self)
     }
 
-    func abs() -> Double {
+    public func abs() -> Double {
         return fabs(self)
     }
 
-    func floor() -> Double {
+    public func floor() -> Double {
         return Darwin.floor(self)
     }
 
-    func ceil() -> Double {
+    public func ceil() -> Double {
         return Darwin.ceil(self)
     }
 
-    typealias TargetType = Double
+    public typealias TargetType = Double
 }

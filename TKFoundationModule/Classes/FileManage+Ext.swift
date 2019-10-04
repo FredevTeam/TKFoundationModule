@@ -8,6 +8,12 @@
 import Foundation
 
 extension FileManager {
+
+    /// PathType
+    ///
+    /// - none: none 默认
+    /// - file: file 文件类型
+    /// - dic: dic 文件夹
     public enum PathType {
         case none
         case file
@@ -15,6 +21,7 @@ extension FileManager {
     }
 }
 
+// MARK: - FileManager
 extension TypeWrapperProtocol where WrappedType == FileManager {
 
     var document: URL? {
@@ -91,7 +98,11 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
         return .file
     }
 
-    public static func isDir(path: String) -> Bool {
+    /// 文件夹
+    ///
+    /// - Parameter path: path 路径
+    /// - Returns: 结果 true 为文件夹，false
+    public static func dir(path: String) -> Bool {
         if !FileManager.ns.isExit(path: path) {
             return false
         }
@@ -100,6 +111,10 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
         return isDir.boolValue
     }
 
+    /// 文件
+    ///
+    /// - Parameter path: path 路径
+    /// - Returns: 结果 true 为文件夹，false
     public static func isFile(path: String) -> Bool {
         if !FileManager.ns.isExit(path: path) {
             return false
@@ -397,24 +412,41 @@ extension TypeWrapperProtocol where WrappedType == FileManager {
     }
 
 
+    /// 子集
+    ///
+    /// - Parameter path: 路径
+    /// - Returns: 子集 path 
     public static func children(path: String) -> [String] {
-        if !FileManager.ns.isDir(path: path) {
+        if !FileManager.ns.dir(path: path) {
             return []
         }
         return (try? FileManager.default.contentsOfDirectory(atPath: path)) ?? []
     }
+
+    /// 子集
+    ///
+    /// - Parameter url: URL
+    /// - Returns: URLs
     public static func children(path url: URL) -> [URL] {
-        if !FileManager.ns.isDir(path: url.path) {
+        if !FileManager.ns.dir(path: url.path) {
             return []
         }
         return exportPath(url: url) ?? []
     }
 
+    /// 兄弟集
+    ///
+    /// - Parameter path: path
+    /// - Returns: paths
     public static func brothers(path: String) -> [String] {
         let url = URL.init(fileURLWithPath: path)
         return export(url: url) ?? []
     }
 
+    /// 兄弟集
+    ///
+    /// - Parameter path: path
+    /// - Returns: urls 
     public static func brothers(path: URL) -> [URL] {
         return exportPath(url: path.deletingLastPathComponent()) ?? []
     }

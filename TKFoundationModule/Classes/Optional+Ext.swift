@@ -6,10 +6,13 @@
 //
 import Foundation
 
+
+// MARK: - Optional
+
 extension Optional {
     
     /// 判断是否为空 true
-    var isNone: Bool {
+    public var isNone: Bool {
         switch self  {
         case .none:
             return true
@@ -20,11 +23,11 @@ extension Optional {
     
     
     /// 判断是否非空  true
-    var  isNotNone: Bool {
+    public var isNotNone: Bool {
         return !isNone
     }
     
-    var readme: String? {
+    public var readme: String? {
         return "此部分来源于，感谢SwiftGG翻译组, 感谢这些函数的实现者"
     }
 }
@@ -36,7 +39,7 @@ extension Optional {
     ///
     /// - Parameter default: 可选值
     /// - Returns: 结果
-    func or(_ default: Wrapped) -> Wrapped {
+    public func or(_ default: Wrapped) -> Wrapped {
         return self ?? `default`
     }
     
@@ -45,7 +48,7 @@ extension Optional {
     ///
     /// - Parameter else: 表达式
     /// - Returns: 结果
-    func or(else: @autoclosure () -> Wrapped) -> Wrapped {
+    public func or(else: @autoclosure () -> Wrapped) -> Wrapped {
         return self ?? `else`()
     }
     
@@ -54,7 +57,7 @@ extension Optional {
     ///
     /// - Parameter else: 闭包
     /// - Returns: 结果
-    func or(else: () -> Wrapped) -> Wrapped {
+    public func or(else: () -> Wrapped) -> Wrapped {
         return self ?? `else`()
     }
     
@@ -64,7 +67,7 @@ extension Optional {
     /// - Parameter exception: 异常
     /// - Returns: 结果
     /// - Throws: 异常
-    func or(throw exception: Error) throws -> Wrapped {
+    public func or(throw exception: Error) throws -> Wrapped {
         guard let unwrapped = self else { throw exception }
         return unwrapped
     }
@@ -75,7 +78,7 @@ extension Optional where Wrapped == Error {
     /// 当可选值不为空时，执行 `else`
     ///
     /// - Parameter else: 执行内容
-    func or(_ else: (Error) -> Void) {
+    public func or(_ else: (Error) -> Void) {
         guard let error = self else { return }
         `else`(error)
     }
@@ -84,11 +87,11 @@ extension Optional where Wrapped == Error {
 
 extension Optional {
     
-    ///
+    /// 
     ///
     /// - Parameter do: <#do description#>
     /// - Returns: <#return value description#>
-    func should(_ do: () throws -> Void) -> Error? {
+    public func should(_ do: () throws -> Void) -> Error? {
         do {
             try `do`()
             return nil
