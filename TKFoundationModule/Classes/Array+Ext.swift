@@ -295,4 +295,23 @@ extension ArrayProxy where Element : Equatable {
         }
         return array
     }
+    
+}
+
+
+extension Array where Element: Equatable {
+
+    /// 删除
+    ///
+    /// - Parameters:
+    ///   - first: first
+    ///   - second: second
+    /// - Returns: new array
+    public static func - (first: [Element], second: [Element]) -> [Element] {
+        var result = first
+        result.removeAll { (element) -> Bool in
+            second.contains(element)
+        }
+        return result
+    }
 }

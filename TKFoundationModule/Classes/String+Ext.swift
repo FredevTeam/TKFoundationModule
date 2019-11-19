@@ -357,3 +357,55 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 
 
+
+
+/// MARK: - Find
+extension TypeWrapperProtocol where WrappedType == String {
+
+    /// 正则表达式查找
+    ///
+    /// - Parameter regex: 正则表达式
+    /// - Returns: 结果数组
+    public func findMatches(forRegex regex: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: self.wrappedValue, options: [], range: NSRange.init(self.wrappedValue.startIndex..., in: self.wrappedValue))
+            return results.map {
+                String(self.wrappedValue[Range($0.range, in: self.wrappedValue)!])
+            }
+        } catch {
+            print("Regex error: \(error)")
+            return []
+        }
+    }
+}
+
+
+
+/// MARK: - Index
+extension TypeWrapperProtocol where WrappedType == String {
+    public func startIndex(of string: String, options: String.CompareOptions = .literal) -> String.Index? {
+        return wrappedValue.range(of: string, options: options)?.lowerBound
+    }
+    public func endIndex(of string: String, options: String.CompareOptions = .literal) -> String.Index? {
+        return wrappedValue.range(of: string, options: options)?.upperBound
+    }
+    public func indexes(of string: String, options: String.CompareOptions = .literal) -> [String.Index] {
+        var result: [String.Index] = []
+        var start = wrappedValue.startIndex
+        while let range = wrappedValue.range(of: string, options: options, range: start..<wrappedValue.endIndex) {
+            result.append(range.lowerBound)
+            start = range.lowerBound < range.upperBound ? range.upperBound : wrappedValue.index(range.lowerBound, offsetBy: 1, limitedBy: wrappedValue.endIndex) ?? wrappedValue.endIndex
+        }
+        return result
+    }
+    public func ranges(of string: String, options: NSString.CompareOptions = .literal) -> [Range<String.Index>] {
+        var result: [Range<String.Index>] = []
+        var start = wrappedValue.startIndex
+        while let range = wrappedValue.range(of: string, options: options, range: start..<wrappedValue.endIndex) {
+            result.append(range)
+            start = range.lowerBound < range.upperBound ? range.upperBound : wrappedValue.index(range.lowerBound, offsetBy: 1, limitedBy: wrappedValue.endIndex) ?? wrappedValue.endIndex
+        }
+        return result
+    }
+}

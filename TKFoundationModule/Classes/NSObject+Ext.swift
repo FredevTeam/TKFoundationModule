@@ -58,3 +58,4 @@ extension  TypeWrapperProtocol where WrappedType == NSObject {
     }
  
 }
+

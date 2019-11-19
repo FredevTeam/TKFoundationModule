@@ -191,10 +191,24 @@ extension DictionaryProxy {
         }
         return result
     }
-    
+
+
+    /// 返回一个新字典，其中包含由给定的闭包转换的键以及该字典的值。
+    ///
+    /// - Parameter 转换键的闭包。每个转换的键都必须是唯一的。
+    /// - Returns: A dictionary containing transformed keys and the values of this dictionary.
+    func mapKeys<T>(transform: (Key) throws -> T) rethrows -> [T: Value] {
+
+        let keysWithValues = try self.base.map { (key, value) -> (T, Value) in
+            (try transform(key), value)
+        }
+
+        return [T: Value](uniqueKeysWithValues: keysWithValues)
+    }
+
 }
 
-extension Dictionary {
+extension Dictionary where Key: Equatable {
     
     
     
@@ -234,8 +248,27 @@ extension Dictionary {
             first.updateValue(value, forKey: key)
         }
     }
-    
-    
+
+
+    ///  enable + operator dictionary
+    ///
+    /// - Parameters:
+    ///   - left: left dic
+    ///   - right: right dic
+    /// - Returns: merged dic
+    static public func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>)
+        -> Dictionary<K,V>
+    {
+        var map = Dictionary<K,V>()
+        for (k, v) in left {
+            map[k] = v
+        }
+        for (k, v) in right {
+            map[k] = v
+        }
+        return map
+    }
+
     /// 删除
     ///
     /// - Parameters:

@@ -44,3 +44,16 @@ extension Sequence {
         return sorted(by: { $0[keyPath: att] < $1[keyPath: att] })
     }
 }
+
+// MARK:- Collection
+extension Collection {
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+

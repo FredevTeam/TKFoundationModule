@@ -101,6 +101,36 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
         }
         return names
     }
-    
+
+
+    /// 方法列表
+    ///
+    /// - Parameters:
+    ///   - debug: debug 模式， 会打印方法列表
+    ///   - `class`: class
+    /// - Returns: [String] 方法名数组
+    public func getMethodList(debug: Bool,`class`: AnyClass?) -> [String] {
+        var names = [String]()
+        var count: UInt32 = 0
+
+        var targetClass: AnyClass? = `class`
+        if targetClass == nil  {
+            targetClass = self.wrappedValue.classForCoder
+        }
+
+        let propertys = class_copyMethodList(self.wrappedValue.classForCoder, &count)
+        if  propertys == nil  {
+            return names
+        }
+        for i  in 0...(Int(count) - 1) {
+            let aMet: objc_property_t = propertys![i]
+            let string = String(utf8String: property_getName(aMet))
+            names.append(string!)
+            if debug {
+                debugPrint(string ?? "")
+            }
+        }
+        return names
+    }
     
 }
