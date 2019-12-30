@@ -52,7 +52,7 @@ public final class DoubleLinkedList<V> {
     private var firstNode: DoubleLinkedListNode<V>?
     private var lastNode: DoubleLinkedListNode<V>?
 
-    init() {
+    public init() {
     }
 }
 

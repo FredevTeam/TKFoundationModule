@@ -19,6 +19,8 @@ public protocol StackProtocol  {
     mutating func  push(_ newElement: Element)
     
     mutating func pop() -> Element?
+    
+    func array() -> [Element]
 }
 
 
@@ -30,6 +32,14 @@ public struct Stack<T>: StackProtocol {
     public typealias Element = T
     
     fileprivate var  stack:[T] = []
+    
+    public init() {
+        
+    }
+    
+    public func array() -> [T] {
+        return stack
+    }
     
     /// 是否为空
     public var isEmpty: Bool {
