@@ -41,8 +41,27 @@ extension DispatchQueue {
     public static func global(execute: @escaping () -> Void) {
         DispatchQueue.global().async(execute: execute)
     }
-    
-    
+
+    static var `default`: DispatchQueue {
+        return DispatchQueue.global(qos: .`default`)
+    }
+    static var userInteractive: DispatchQueue {
+        return DispatchQueue.global(qos: .userInteractive)
+
+    }
+    static var userInitiated: DispatchQueue {
+        return DispatchQueue.global(qos: .userInitiated)
+
+    }
+    static var utility: DispatchQueue {
+        return DispatchQueue.global(qos: .utility)
+
+    }
+    static var background: DispatchQueue {
+        return DispatchQueue.global(qos: .background)
+
+    }
+
     /// delay time
     ///
     /// - Parameters:
@@ -50,7 +69,19 @@ extension DispatchQueue {
     ///   - execute: block
     public static func delay(_ time: Double, execute: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
-    }   
+    }
+
+    private static var _onceTracker = [String]()
+    public class func once(_ token: String = UUID.init().uuidString, block:()->Void) {
+        objc_sync_enter(self)
+        defer { objc_sync_exit(self) }
+
+        if _onceTracker.contains(token) {
+            return
+        }
+        _onceTracker.append(token)
+        block()
+    }
 }
 
 

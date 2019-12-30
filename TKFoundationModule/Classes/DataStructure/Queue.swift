@@ -25,6 +25,8 @@ public protocol QueueProtocol  {
 
     /// 清空队列
     mutating func removeAll()
+    
+    func array() ->[Element]
 }
 
 
@@ -35,8 +37,15 @@ public struct Queue<T>: QueueProtocol {
     public typealias Element  = T
     
     fileprivate var queue:[T] = []
-
-
+    
+    public init() {
+        
+    }
+    
+    public func array() -> [T] {
+        return queue
+    }
+    
     /// 是否为空
     public var isEmpty: Bool {
         return queue.isEmpty
