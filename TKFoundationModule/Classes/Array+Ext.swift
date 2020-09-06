@@ -44,6 +44,22 @@ extension ArrayProxy {
         return base[index]
     }
     
+    /// 随机获取任意多个元素
+    /// - Parameter count: 元素个数
+    /// - Returns: 结果，数组
+    public func random(count: Int) -> [Element] {
+        guard count < base.count else {
+            return self.shuffle()
+        }
+        var elements:[Element] = []
+        for _ in 0..<count {
+            let index: Int = Int(arc4random_uniform(UInt32(base.count)))
+            elements.append(base[index])
+        }
+        return elements
+    }
+    
+    
     
     /// sub array
     ///
@@ -105,6 +121,20 @@ extension ArrayProxy {
             }
         }
         return list
+    }
+    
+    
+    /// 查找 index
+    ///
+    /// - Parameter condition: block
+    /// - Returns: index
+    public func index(of condition:(Element) -> Bool) -> Int? {
+        for (index, element ) in base.enumerated() {
+            if condition(element) {
+                return index
+            }
+        }
+        return nil
     }
 }
 
