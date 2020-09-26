@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TypeWrapperProtocol where WrappedType == OperationQueue {
+extension TypeWrapperProtocol where WrappedType: OperationQueue {
     
 }
 

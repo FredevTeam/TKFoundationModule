@@ -22,7 +22,7 @@ extension FileManager {
 }
 
 // MARK: - FileManager
-extension TypeWrapperProtocol where WrappedType == FileManager {
+extension TypeWrapperProtocol where WrappedType: FileManager {
 
     var document: URL? {
         get {

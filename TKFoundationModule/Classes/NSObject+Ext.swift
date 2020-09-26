@@ -10,7 +10,7 @@ import Foundation
 extension NSObject : NamespaceWrappable{}
 
 // MARK: - NSObject Method Swizzing
-extension TypeWrapperProtocol where WrappedType == NSObject {
+extension TypeWrapperProtocol where WrappedType: NSObject {
     
     /// 方法交换
     ///
@@ -39,7 +39,7 @@ extension TypeWrapperProtocol where WrappedType == NSObject {
 
 
 // MARK: - NSObject run time
-extension  TypeWrapperProtocol where WrappedType == NSObject {
+extension  TypeWrapperProtocol where WrappedType: NSObject {
     
     /// 执行时间
     ///

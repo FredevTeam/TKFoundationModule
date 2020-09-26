@@ -33,7 +33,7 @@ extension TypeWrapperProtocol where WrappedType == Data {
 }
 
 
-extension TypeWrapperProtocol where WrappedType == NSData {
+extension TypeWrapperProtocol where WrappedType: NSData {
     
     /// 获取 image 类型
     ///

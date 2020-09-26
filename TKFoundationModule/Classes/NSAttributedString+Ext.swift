@@ -9,6 +9,6 @@ import Foundation
 
 
 // MARK: - NSAttributedString
-extension TypeWrapperProtocol where WrappedType == NSAttributedString {
+extension TypeWrapperProtocol where WrappedType: NSAttributedString {
     
 }
