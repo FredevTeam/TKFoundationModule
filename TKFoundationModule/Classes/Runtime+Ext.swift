@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - NSObject
-extension TypeWrapperProtocol where WrappedType == NSObject {
+extension TypeWrapperProtocol where WrappedType: NSObject {
     
     /// 获取类的实例方法名
     ///

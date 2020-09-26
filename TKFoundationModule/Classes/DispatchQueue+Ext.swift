@@ -12,7 +12,7 @@ private let mainQueueValue = "mainQueue"
 
 
 // MARK: - DispatchQueue
-extension TypeWrapperProtocol where WrappedType == DispatchQueue {
+extension TypeWrapperProtocol where WrappedType: DispatchQueue {
     
     /// 判断是否在主线程执行推荐通过此方式来实现
     ///

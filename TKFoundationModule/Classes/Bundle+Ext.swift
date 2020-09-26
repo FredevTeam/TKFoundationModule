@@ -8,7 +8,7 @@
 import Foundation
 
 /// Bundle
-extension TypeWrapperProtocol where WrappedType == Bundle {
+extension TypeWrapperProtocol where WrappedType: Bundle {
     
     /// 分类所有 framework
     ///
