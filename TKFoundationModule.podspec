@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TKFoundationModule'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'A short description of TKFoundationModule.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/zhuamaodeyu/TKFoundationModule.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.12'
 
