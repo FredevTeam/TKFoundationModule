@@ -67,3 +67,6 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 Example/out/doc
+contents.xcworkspacedata
+Example/TKFoundationModule.xcworkspace/xcshareddata
+Podfile.lock

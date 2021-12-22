@@ -26,15 +26,15 @@ extension CGPoint {
 
 extension CGSize {
     public static func + (ls: CGSize, rs: CGSize) -> CGSize {
-        return CGSize.init(x: ls.width + rs.width, y: ls.height + rs.height)
+        return CGSize.init(width: ls.width + rs.width, height: ls.height + rs.height)
     }
     public static func - (ls: CGSize, rs: CGSize) -> CGSize {
-        return CGSize.init(x: ls.width - rs.width, y: ls.height - rs.height)
+        return CGSize.init(width: ls.width - rs.width, height: ls.height - rs.height)
     }
     public static func * (ls: CGSize, rs: CGSize) -> CGSize {
-        return CGSize.init(x: ls.width * rs.width, y: ls.height * rs.height)
+        return CGSize.init(width: ls.width * rs.width, height: ls.height * rs.height)
     }
     public static func / (ls: CGSize, rs: CGSize) -> CGSize {
-        return CGSize.init(x: ls.width / rs.width, y: ls.height  rs.height)
+        return CGSize.init(width: ls.width / rs.width, height: ls.height / rs.height)
     }
 }
