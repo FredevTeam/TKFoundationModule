@@ -110,6 +110,20 @@ extension TypeWrapperProtocol where WrappedType: FileManager {
         FileManager.default.fileExists(atPath: path, isDirectory: &isDir)
         return isDir.boolValue
     }
+    /// 引用
+    ///
+    /// - Parameter path: path 路径
+    /// - Returns: 结果 true 为引用，false
+    public static func symbolicLink(path: String) -> Bool {
+        if !FileManager.ns.isExit(path: path) {
+            return false
+        }
+        let attributes = FileManager.ns.pathAttribute(path: path)
+        if let sym = attributes[safe: FileAttributeKey.init(FileAttributeType.typeSymbolicLink.rawValue)] as? Bool, sym {
+            return true
+        }
+        return false
+    }
 
     /// 文件
     ///
