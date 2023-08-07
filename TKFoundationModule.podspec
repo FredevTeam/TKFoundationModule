@@ -24,12 +24,12 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/zhuamaodeyu/TKFoundationModule'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'zhuamaodeyu' => '1021491936@qq.com' }
+  s.author           = { 'fredevteam' => 'fredevteam@outlook.com' }
   s.source           = { :git => 'https://github.com/zhuamaodeyu/TKFoundationModule.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.swift_version = '4.2'
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
   s.osx.deployment_target = '10.12'
 
   s.source_files = 'TKFoundationModule/Classes/**/*'
